@@ -29,7 +29,8 @@
           <red-books :itemId="itemId" v-else></red-books>
         </div>
         <div class="product-intro" v-if="currentItemDetail.id != 1 && currentItemDetail.id != 3 && currentItemDetail.id != 5">
-          <rotate-cards :itemId="itemId"></rotate-cards>
+          <rotate-cards :itemId="itemId" v-if="currentItemDetail.id === 2"></rotate-cards>
+          <hover-filter v-if="currentItemDetail.id === 4"></hover-filter>
         </div>
       </div>
     </div>
@@ -100,6 +101,7 @@ import redBooks from '@/components/RedBooks.vue'
 import rolloverCards from "@/components/RolloverCards.vue";
 import barChart from "@/components/bar-chart.vue";
 import showBooks from "@/components/ShowBooks.vue";
+import hoverFilter from "@/components/HoverFilter.vue";
 import halfPie from "@/components/half-pie-chart.vue";
 import warning from "@/assets/warning.png";
 import * as echarts from "echarts";
@@ -342,6 +344,7 @@ const removeFilter = () => {
     }
     .product-intro {
       display: flex;
+      width: 50%;
       // align-items: center;
       ul {
         .fj();
