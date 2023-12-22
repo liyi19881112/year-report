@@ -1,10 +1,10 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
- * @LastEditors: 李一 yi_li_neu@neusoft.com
- * @LastEditTime: 2023-12-13 17:24:13
+ * @LastEditors: liyi19881112 71474753+liyi19881112@users.noreply.github.com
+ * @LastEditTime: 2023-12-21 11:29:16
  * @FilePath: \newbee-mall-vue3-app\src\views\Cart.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 结算单页面
 -->
 
 <template>
@@ -71,18 +71,9 @@
       />
     </div>
   </van-dialog>
-  <van-dialog
-    v-model:show="payDialogShow"
-    title=""
-    :show-confirm-button="false"
-    class="payDialog"
-  >
-    <div>结算成功!</div>
-    <div>
-      <span>{{ confirmTxt }}</span
-      >秒后自动跳转收获页
-    </div>
-  </van-dialog>
+  <div class="dialog" v-show="payDialogShow">
+    <success-dialog ref="successDialogRef"></success-dialog>
+  </div>
   <van-empty
     v-if="state.list.length === 0"
     image="error"
@@ -93,23 +84,24 @@
 
 <script setup>
 import { reactive, onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
 import { useCartStore } from "@/stores/cart";
 import { showLoadingToast, closeToast, showFailToast } from "vant";
+import { useRouter } from "vue-router";
 import qrcode from "@/components/Qrcode.vue";
 import navBar from "@/components/NavBar.vue";
 import seal from '@/components/Seal.vue'
 import gallery from '@/components/Gallery.vue'
+import successDialog from "@/components/SuccessDialog.vue";
 
 const router = useRouter();
 const cart = useCartStore();
 const dialogShow = ref(false); // 支付弹窗显示标识
 const payDialogShow = ref(false); // 支付成功弹窗显示标识
-const confirmTxt = ref(5); // 支付成功后自动跳转收获页
 const toInput = ref(false); // 是否显示输入框
 const inputValue = ref(""); // 输入框绑定值
 const offset = ref({ x: 0, y: 100 }); // 气泡默认位置
-const timer = ref(null); // 定时器
+// 获取子组件实例
+const successDialogRef = ref(null);
 
 // 已完成的项目列表
 const state = reactive({
@@ -168,28 +160,14 @@ const beforeClose = (action) => {
       // 赋值完成标识
       cart.isDone = true;
       // 显示弹窗,5秒钟后自动跳转支付成功页面
-      countDown();
+      payDialogShow.value = true;
+      console.log('子组件实例',successDialogRef.value.countDown)
+      successDialogRef.value.countDown();
       return true;
     }
   } else {
     return true;
   }
-};
-
-// 倒计时
-const countDown = () => {
-  // 更改弹窗显示状态
-  payDialogShow.value = true;
-
-  //提交报名按钮倒计时
-  timer.value = setInterval(() => {
-    if (confirmTxt.value === 0) {
-      clearInterval(timer.value);
-      router.push({ path: "/user" });
-    } else {
-      confirmTxt.value--;
-    }
-  }, 1000);
 };
 
 const toDetail = (item) => {
@@ -265,5 +243,13 @@ const toDetail = (item) => {
       }
     }
   }
+}
+.dialog {
+  .wh(100%, 100%);
+  z-index: 2000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
 }
 </style>

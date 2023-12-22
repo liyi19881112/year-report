@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-18 13:58:31
  * @LastEditors: liyi19881112 71474753+liyi19881112@users.noreply.github.com
- * @LastEditTime: 2023-12-20 15:51:53
+ * @LastEditTime: 2023-12-21 17:00:48
  * @FilePath: \year-report\src\components\ShowBooks.vue
  * @Description: 书架展示组件
 -->
@@ -139,6 +139,7 @@ const page9 = [img9, text9];
   & :deep(.page) {
     box-shadow: 4px 2px 7px rgba(0,0,0,0.6);
     border-radius: 8px;
+    padding: 0;
   }
 }
 .bookshelf {

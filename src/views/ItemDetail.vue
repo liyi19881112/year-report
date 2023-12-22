@@ -31,6 +31,7 @@
         <div class="product-intro" v-if="currentItemDetail.id != 1 && currentItemDetail.id != 3 && currentItemDetail.id != 5">
           <rotate-cards :itemId="itemId" v-if="currentItemDetail.id === 2"></rotate-cards>
           <hover-filter v-if="currentItemDetail.id === 4"></hover-filter>
+          <three-hover-cards v-if="currentItemDetail.id === 6"></three-hover-cards>
         </div>
       </div>
     </div>
@@ -103,6 +104,7 @@ import barChart from "@/components/bar-chart.vue";
 import showBooks from "@/components/ShowBooks.vue";
 import hoverFilter from "@/components/HoverFilter.vue";
 import halfPie from "@/components/half-pie-chart.vue";
+import threeHoverCards from "@/components/ThreeHoverCards.vue";
 import warning from "@/assets/warning.png";
 import * as echarts from "echarts";
 import { ElLoading, dayjs } from "element-plus";
