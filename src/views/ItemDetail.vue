@@ -24,14 +24,16 @@
       </div>
       <div class="product-info">
         <div class="left">
-          <rollover-cards v-if="currentItemDetail.id === 1 || currentItemDetail.id === 3"></rollover-cards>
+          <rollover-cards v-if="currentItemDetail.id === 1"></rollover-cards>
           <show-books v-else-if="currentItemDetail.id === 5"></show-books>
+          <up-down-rotate v-else-if="currentItemDetail.id === 3"></up-down-rotate>
           <red-books :itemId="itemId" v-else></red-books>
         </div>
-        <div class="product-intro" v-if="currentItemDetail.id != 1 && currentItemDetail.id != 3 && currentItemDetail.id != 5">
+        <div class="product-intro" v-if="currentItemDetail.id != 1 && currentItemDetail.id != 5">
           <rotate-cards :itemId="itemId" v-if="currentItemDetail.id === 2"></rotate-cards>
           <hover-filter v-if="currentItemDetail.id === 4"></hover-filter>
           <three-hover-cards v-if="currentItemDetail.id === 6"></three-hover-cards>
+          <scroll-ball v-if="currentItemDetail.id === 3"></scroll-ball>
         </div>
       </div>
     </div>
@@ -105,6 +107,8 @@ import showBooks from "@/components/ShowBooks.vue";
 import hoverFilter from "@/components/HoverFilter.vue";
 import halfPie from "@/components/half-pie-chart.vue";
 import threeHoverCards from "@/components/ThreeHoverCards.vue";
+import scrollBall from "@/components/ScrollBall.vue"
+import upDownRotate from "@/components/UpDownRotate.vue"
 import warning from "@/assets/warning.png";
 import * as echarts from "echarts";
 import { ElLoading, dayjs } from "element-plus";
