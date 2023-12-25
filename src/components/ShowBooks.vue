@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-18 13:58:31
  * @LastEditors: liyi19881112 71474753+liyi19881112@users.noreply.github.com
- * @LastEditTime: 2023-12-21 17:00:48
+ * @LastEditTime: 2023-12-25 15:17:15
  * @FilePath: \year-report\src\components\ShowBooks.vue
  * @Description: 书架展示组件
 -->
@@ -99,6 +99,14 @@
             :pages="page9"
           ></flipbook>
         </li>
+        <li>
+          <flipbook
+            class="flipbook"
+            :singlePage="true"
+            :wheel="zoom"
+            :pages="page10"
+          ></flipbook>
+        </li>
       </ul>
     </div>
   </div>
@@ -114,6 +122,7 @@ import img6 from "./images/目送.jpg";
 import img7 from "./images/法医秦明系列.jpg";
 import img8 from "./images/太白金星有点烦.jpg";
 import img9 from "./images/成龙.jpg"
+import img10 from "./images/城南旧事.jpg"
 import text1 from "./images/text1.jpg";
 import text8 from "./images/text8.jpg";
 import text9 from "./images/text9.jpg";
@@ -130,6 +139,7 @@ const page6 = [img6, text1];
 const page7 = [img7, text1];
 const page8 = [img8, text8];
 const page9 = [img9, text9];
+const page10 = [img10, text9];
 </script>
 
 <style lang="scss" scoped>

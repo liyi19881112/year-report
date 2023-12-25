@@ -69,6 +69,7 @@
           :options="barOptions"
         ></bar-chart>
         <half-pie style="width: 100%; height: 300px"></half-pie>
+        <sankey-chart style="width: 100%; height: 300px"></sankey-chart>
       </div>
     </van-floating-panel>
     <van-dialog
@@ -109,6 +110,7 @@ import halfPie from "@/components/half-pie-chart.vue";
 import threeHoverCards from "@/components/ThreeHoverCards.vue";
 import scrollBall from "@/components/ScrollBall.vue"
 import upDownRotate from "@/components/UpDownRotate.vue"
+import sankeyChart from "@/components/SankeyChart.vue"
 import warning from "@/assets/warning.png";
 import * as echarts from "echarts";
 import { ElLoading, dayjs } from "element-plus";

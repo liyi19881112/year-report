@@ -17,11 +17,12 @@
 
 <style lang="scss" scoped>
 .card {
-  width: 190px;
-  height: 254px;
+  width: 300px;
+  height: 400px;
   position: relative;
   border-radius: 40px;
   transition: all 0.8s;
+  margin-left: 30px;
   perspective: 600px;
   perspective-origin: center bottom;
 }
