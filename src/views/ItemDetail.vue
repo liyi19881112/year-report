@@ -1,12 +1,12 @@
 <!--
- * 严肃声明：
- * 开源版本请务必保留此注释头信息，若删除我方将保留所有法律责任追究！
- * 本系统已申请软件著作权，受国家版权局知识产权以及国家计算机软件著作权保护！
- * 可正常分享和学习源码，不得用于违法犯罪活动，违者必究！
- * Copyright (c) 2020 陈尼克 all rights reserved.
- * 版权所有，侵权必究！
- *
+ * @Author: 李一 375987927@qq.com
+ * @Date: 2023-12-20 14:19:05
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2023-12-25 15:46:28
+ * @FilePath: \year-report-github\src\views\ItemDetail.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
+
 
 <template>
   <div class="product-detail">
