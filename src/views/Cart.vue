@@ -1,8 +1,8 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
- * @LastEditors: liyi19881112 71474753+liyi19881112@users.noreply.github.com
- * @LastEditTime: 2023-12-21 11:29:16
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2023-12-26 11:21:51
  * @FilePath: \newbee-mall-vue3-app\src\views\Cart.vue
  * @Description: 结算单页面
 -->
@@ -161,7 +161,6 @@ const beforeClose = (action) => {
       cart.isDone = true;
       // 显示弹窗,5秒钟后自动跳转支付成功页面
       payDialogShow.value = true;
-      console.log('子组件实例',successDialogRef.value.countDown)
       successDialogRef.value.countDown();
       return true;
     }

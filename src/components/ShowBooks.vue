@@ -1,8 +1,8 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-18 13:58:31
- * @LastEditors: liyi19881112 71474753+liyi19881112@users.noreply.github.com
- * @LastEditTime: 2023-12-25 15:17:15
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2023-12-26 15:07:57
  * @FilePath: \year-report\src\components\ShowBooks.vue
  * @Description: 书架展示组件
 -->
@@ -34,7 +34,7 @@
             :singlePage="true"
             :pages="page3"
           ></flipbook>
-        </li> 
+        </li>
         <li>
           <flipbook
             class="flipbook"
@@ -107,9 +107,21 @@
             :pages="page10"
           ></flipbook>
         </li>
+        <li>
+          <book-review v-show="bookReviewShow"></book-review>
+        </li>
       </ul>
     </div>
   </div>
+  <van-floating-bubble
+    icon="chat"
+    axis="xy"
+    magnetic="x"
+    v-model:offset="offset"
+    @click="bookReviewShow = !bookReviewShow"
+    >显隐总评</van-floating-bubble
+  >
+  <!-- <button @click="bookReviewShow = !bookReviewShow">点击显隐书评</button> -->
 </template>
 
 <script setup>
@@ -121,13 +133,15 @@ import img5 from "./images/我与地坛.jpg";
 import img6 from "./images/目送.jpg";
 import img7 from "./images/法医秦明系列.jpg";
 import img8 from "./images/太白金星有点烦.jpg";
-import img9 from "./images/成龙.jpg"
-import img10 from "./images/城南旧事.jpg"
+import img9 from "./images/成龙.jpg";
+import img10 from "./images/城南旧事.jpg";
 import text1 from "./images/text1.jpg";
 import text8 from "./images/text8.jpg";
 import text9 from "./images/text9.jpg";
 import bottom from "./images/wall-bookshelf.png";
 import flipbook from "flipbook-vue";
+import bookReview from "@/components/BookReview.vue";
+import { ref } from "vue";
 
 const bottomImg = "url(" + bottom + ")";
 const page1 = [img1, text1];
@@ -140,6 +154,10 @@ const page7 = [img7, text1];
 const page8 = [img8, text8];
 const page9 = [img9, text9];
 const page10 = [img10, text9];
+
+const offset = ref({ x: 0, y: 600 }); // 气泡默认位置
+// 书评总结是否显示
+const bookReviewShow = ref(false);
 </script>
 
 <style lang="scss" scoped>
@@ -147,7 +165,7 @@ const page10 = [img10, text9];
   width: 200px;
   height: 300px;
   & :deep(.page) {
-    box-shadow: 4px 2px 7px rgba(0,0,0,0.6);
+    box-shadow: 4px 2px 7px rgba(0, 0, 0, 0.6);
     border-radius: 8px;
     padding: 0;
   }
