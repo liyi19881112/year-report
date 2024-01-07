@@ -2,16 +2,15 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-26 14:10:09
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2023-12-26 14:30:28
+ * @LastEditTime: 2023-12-28 09:41:03
  * @FilePath: \year-report-github\src\components\SolidCarousel.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 立体轮播卡片
 -->
 <template>
   <div class="outside">
     <div class="rotas">
       <div class="sel">
         <img :src="img1" />
-        <div></div>
       </div>
       <div>
         <img :src="img2" />
@@ -35,8 +34,8 @@
       </div>
     </div>
     <div class="changeBtns">
-      <div class="left">&lt;</div>
-      <div class="right">&gt;</div>
+      <div class="left" @click="leftBtnClick">&lt;</div>
+      <div class="right" @click="rightBtnClick">&gt;</div>
     </div>
   </div>
 </template>
@@ -48,14 +47,60 @@ import img3 from "./images/鲜衣怒马.jpg";
 import img4 from "./images/成为雍正.jpg";
 import img5 from "./images/我与地坛.jpg";
 import img6 from "./images/目送.jpg";
+import { ref, nextTick, onMounted, onBeforeUnmount } from "vue";
 
-let rotas = $(".rotas");
-let rotasPro = $(".rotas >div");
-let rightBtn = $(".right");
-let leftBtn = $(".left");
+const rotas = ref();
+const autoRota = ref(null);
 let deg = 0;
 let degImg = 0;
-console.log('获取dom元素', rotas);
+onMounted(() => {
+  nextTick(() => {
+    rotas.value = document.querySelector(".rotas");
+    console.log("获取dom元素1", rotas.value);
+    // 自动轮播
+    autoRota.value = setInterval(function () {
+      changeRotas(rotas.value, -1);
+      changeImgs(-1);
+    }, 4000);
+  });
+});
+
+onBeforeUnmount(() => {
+  clearInterval(autoRota.value);
+});
+
+const changeRotas = (obj, n) => {
+  if (n > 0) {
+    deg++;
+  } else {
+    deg--;
+  }
+  obj.style.transform = "rotateX(-15deg) rotateY(" + (deg * 60 + 2) + "deg)";
+};
+const changeImgs = (n) => {
+  if (n > 0) {
+    if (++degImg >= 6) {
+      degImg = 0;
+    }
+  } else {
+    if (--degImg < 0) {
+      degImg = 5;
+    }
+  }
+  // 移除高亮
+  document.querySelector(".rotas .sel")?.removeAttribute("class");
+  // 添加高亮
+  document.querySelector(`.rotas>div:nth-child(${degImg + 1})`).setAttribute("class", "sel");
+};
+
+const rightBtnClick = () => {
+  changeRotas(rotas.value, 1);
+  changeImgs(1);
+};
+const leftBtnClick = () => {
+  changeRotas(rotas.value, -1);
+  changeImgs(-1);
+};
 </script>
 
 <style lang="scss" scoped>
@@ -70,12 +115,12 @@ console.log('获取dom元素', rotas);
 }
 
 .rotas {
-  width: 500px;
-  height: 340px;
+  width: 300px;
+  height: 140px;
   transition: all 0.6s linear;
   position: relative;
   transform-style: preserve-3d;
-  transform: rotateX(-5deg) rotateY(2deg);
+  transform: rotateX(-15deg) rotateY(2deg);
   user-select: none;
 }
 
@@ -107,27 +152,27 @@ console.log('获取dom元素', rotas);
 }
 
 .rotas > div:nth-of-type(1) {
-  transform: translateZ(500px);
+  transform: translateZ(300px);
 }
 
 .rotas > div:nth-of-type(2) {
-  transform: rotateY(-60deg) translateZ(500px);
+  transform: rotateY(-60deg) translateZ(300px);
 }
 
 .rotas > div:nth-of-type(3) {
-  transform: rotateY(-120deg) translateZ(500px);
+  transform: rotateY(-120deg) translateZ(300px);
 }
 
 .rotas > div:nth-of-type(4) {
-  transform: translateZ(-500px);
+  transform: translateZ(-300px);
 }
 
 .rotas > div:nth-of-type(5) {
-  transform: rotateY(120deg) translateZ(500px);
+  transform: rotateY(120deg) translateZ(300px);
 }
 
 .rotas > div:nth-of-type(6) {
-  transform: rotateY(60deg) translateZ(500px);
+  transform: rotateY(60deg) translateZ(300px);
 }
 
 .rotas img {

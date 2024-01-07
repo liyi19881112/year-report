@@ -2,7 +2,7 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-25 15:43:06
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2023-12-26 15:15:46
+ * @LastEditTime: 2023-12-27 17:55:06
  * @FilePath: \year-report-github\src\components\BookReview.vue
  * @Description: 书评总结组件
 -->
@@ -22,11 +22,10 @@
 
 <script setup>
 import { ref } from "vue";
-import img1 from "./images/云边有个小卖部.jpg";
+import img1 from "./images/tree.png";
 
-const text = ref(`静夜思
-床前明月光,疑是地上霜
-举头望明月,低头思故乡`);
+const text = ref(`观书散遗帙，
+探古穷至妙。`);
 </script>
 
 <style lang="scss" scoped>
@@ -67,8 +66,8 @@ const text = ref(`静夜思
   position: absolute;
   top: 0;
   left: 50%;
-  width: 380px;
-  height: 200px;
+  width: 280px;
+  height: 100px;
   transform: translateX(-50%);
   padding: 0.5em 1em;
   opacity: 0;
@@ -159,7 +158,7 @@ rotate: z 20deg;
   margin: auto;
   width: fit-content;
   white-space: pre-line;
-  padding-top: 25px;
+  padding-top: 9px;
   filter: drop-shadow(0px 0px 3px #fff);
 }
 @keyframes float {

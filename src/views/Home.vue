@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2023-12-25 15:46:08
+ * @LastEditTime: 2024-01-05 17:08:41
  * @FilePath: \year-report\src\views\Home.vue
  * @Description: 首页
 -->
@@ -57,12 +57,12 @@
             <img :src="item.goodsCoverImg" alt="" @click="goToDetail(item)" />
             <div class="good-desc">
               <div class="title">{{ item.goodsName }}</div>
-              <van-progress
-                :pivot-text="`完成${item.percentage}%`"
-                :color="isColor(item.percentage)"
-                :percentage="item.percentage"
-              />
             </div>
+            <van-progress
+              :pivot-text="`完成${item.percentage}%`"
+              :color="isColor(item.percentage)"
+              :percentage="item.percentage"
+            />
           </div>
         </div>
       </van-skeleton>
@@ -83,11 +83,7 @@
           <div v-for="item in todoList1" :key="item.id" class="cursor-move">
             <div class="title">{{ item.name }}</div>
             <ul>
-              <li>{{ item.name }}</li>
-              <li>{{ item.name }}</li>
-              <li>{{ item.name }}</li>
-              <li>{{ item.name }}</li>
-              <li>{{ item.name }}</li>
+              <li v-for="(detail,index) in item.value" :key="index">{{ detail }}</li>
             </ul>
           </div>
         </VueDraggable>
@@ -100,11 +96,7 @@
           <div v-for="item in todoList2" :key="item.id" class="cursor-move">
             <div class="title">{{ item.name }}</div>
             <ul>
-              <li>{{ item.name }}</li>
-              <li>{{ item.name }}</li>
-              <li>{{ item.name }}</li>
-              <li>{{ item.name }}</li>
-              <li>{{ item.name }}</li>
+              <li v-for="(detail,index) in item.value" :key="index">{{ detail }}</li>
             </ul>
           </div>
         </VueDraggable>
@@ -132,7 +124,7 @@ const list = [
   { id: 2, text: "可定制的" },
   { id: 3, text: "移动端" },
   { id: 4, text: "Vue" },
-  { id: 5, text: "组件库" },
+  { id: 5, text: "前端培训" },
   { id: 6, text: "VantUI" },
   { id: 7, text: "666" },
 ];
@@ -141,38 +133,46 @@ const list = [
 // 待完成拖拽项目1
 const todoList1 = ref([
   {
-    name: "Joao",
+    name: "完善技术栈",
+    value: ['夯实js基础','前端设计模式','Web Components','Promise原理','web3D可视化技术'],
     id: "1",
   },
   {
-    name: "Jean",
+    name: "框架升级",
+    value: ['组件平台化管理','集成权限控制','实用功能补全'],
     id: "2",
   },
   {
     name: "Johanna",
+    value: ['','','',''],
     id: "3",
   },
   {
     name: "Juan",
+    value: ['','','',''],
     id: "4",
   },
 ]);
 // 待完成拖拽项目2
 const todoList2 = ref([
   {
-    name: "今天",
+    name: "技术探索",
+    value: ['Uniapp微信小程序', 'Tree sharking等性能优化'],
     id: "1-2",
   },
   {
     name: "明天",
+    value: [],
     id: "2-2",
   },
   {
-    name: "后天",
+    name: "阅读",
+    value: [],
     id: "3-2",
   },
   {
-    name: "昨天",
+    name: "诗词",
+    value: [],
     id: "4-2",
   },
 ]);
@@ -258,6 +258,7 @@ onMounted(async () => {
     message: "加载中...",
     forbidClick: true,
   });
+  // 轮播图数据
   state.swiperList = [
     {
       carouselUrl: new URL("@/assets/swiper1.png", import.meta.url),
@@ -276,37 +277,37 @@ onMounted(async () => {
   state.newGoodses = [
     {
       goodsCoverImg: new URL("@/assets/done1.svg", import.meta.url),
-      goodsName: "待定一",
-      percentage: "80",
+      goodsName: "项目研发",
+      percentage: "100",
       id: 1,
     },
     {
       goodsCoverImg: new URL("@/assets/done2.svg", import.meta.url),
-      goodsName: "待定二",
+      goodsName: "漏洞修复",
       percentage: "100",
       id: 2,
     },
     {
       goodsCoverImg: new URL("@/assets/done3.svg", import.meta.url),
-      goodsName: "待定三",
+      goodsName: "前端培训",
       percentage: "100",
       id: 3,
     },
     {
       goodsCoverImg: new URL("@/assets/done4.svg", import.meta.url),
-      goodsName: "待定四",
+      goodsName: "诗词创作",
       percentage: "100",
       id: 4,
     },
     {
       goodsCoverImg: new URL("@/assets/done5.svg", import.meta.url),
-      goodsName: "待定五",
+      goodsName: "兴趣阅读",
       percentage: "100",
       id: 5,
     },
     {
       goodsCoverImg: new URL("@/assets/done6.svg", import.meta.url),
-      goodsName: "待定六",
+      goodsName: "自我成长",
       percentage: "20",
       id: 6,
     },
@@ -492,7 +493,7 @@ const tips = () => {
       .good-desc {
         text-align: center;
         font-size: 14px;
-        padding: 10px 0;
+        padding: 0 0 10px 0;
         .title {
           color: #222333;
         }
