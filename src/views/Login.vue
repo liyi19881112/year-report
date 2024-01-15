@@ -1,8 +1,8 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:37:07
- * @LastEditors: 李一 yi_li_neu@neusoft.com
- * @LastEditTime: 2023-12-19 15:01:10
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2024-01-15 15:37:50
  * @FilePath: \newbee-mall-vue3-app\src\views\LoginNew.vue
  * @Description: 登录页面
 -->
@@ -11,7 +11,7 @@
   <div ref="vantaRef" style="width: 100%;height: 100vh;"></div>
   <div class="my-login-box">
     <div class="sign">
-      <span class="fast-flicker">年</span>度总结<span class="flicker">汇</span>报
+      <span class="fast-flicker">年</span>度<span class="flicker">总结</span><span class="flicker">汇报</span>
     </div>
     <form>
         <div class="user-box">

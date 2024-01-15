@@ -1,8 +1,8 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-12 17:48:54
- * @LastEditors: 李一 yi_li_neu@neusoft.com
- * @LastEditTime: 2023-12-18 11:03:56
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2024-01-15 16:08:20
  * @FilePath: \year-report\src\components\seal.vue
  * @Description: 生成签章组件
 -->
@@ -10,14 +10,14 @@
   <div
     class="seal"
     :style="`position: absolute; right: 5px; top: 7px; border: 3px solid ${
-      currentItemDetail?.color || '#b4b4b4'
+      currentItemDetail?.color || '#FFB6C1'
     }`"
   >
     <div
       class="seal-son"
       :style="`border: 3px solid ${
-        currentItemDetail?.color || '#b4b4b4'
-      };color: ${currentItemDetail?.color || '#b4b4b4'}`"
+        currentItemDetail?.color || '#FFB6C1'
+      };color: ${currentItemDetail?.color || '#FFB6C1'}`"
     >
       <span
         style="
@@ -29,7 +29,7 @@
           right: 37%;
           font-weight: 900;
         "
-        >{{ currentItemDetail?.name || "兴趣类" }}</span
+        >{{ currentItemDetail?.name || "技术类" }}</span
       >
       <span
         style="
@@ -57,17 +57,17 @@ const props = defineProps({
 // 不同项目对应盖章信息
 const sealItem = [
   {
-    id: "2",
-    name: "技术类",
-    color: "#FFB6C1",
+    id: "4",
+    name: "兴趣类",
+    color: "#2ffad4",
   },
   {
-    id: "3",
+    id: "5",
     name: "阅读类",
     color: "#FFBBFF",
   },
   {
-    id: "4",
+    id: "3",
     name: "培训类",
     color: "#FFC125",
   },

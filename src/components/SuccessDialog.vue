@@ -1,8 +1,8 @@
 <!--
  * @Author: liyi19881112 71474753+liyi19881112@users.noreply.github.com
  * @Date: 2023-12-21 10:00:44
- * @LastEditors: liyi19881112 71474753+liyi19881112@users.noreply.github.com
- * @LastEditTime: 2023-12-21 15:19:13
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2024-01-15 16:47:12
  * @FilePath: \year-report-github\src\components\SuccessDialog.vue
  * @Description: 礼花碎片效果成功弹窗
 -->
@@ -30,7 +30,7 @@
         <div class="confetti-piece"></div>
       </div>
       <div class="results-summary-container__result">
-        <div class="heading-tertiary">Your Result</div>
+        <div class="heading-tertiary">支付结果</div>
         <div class="result-box">
           <div class="heading-primary">{{ confirmTxt }}</div>
           <p class="result">秒后自动跳转收获页</p>
@@ -38,7 +38,7 @@
         <div class="result-text-box">
           <div class="heading-secondary">结算成功!</div>
           <p class="paragraph">
-            You scored higher than 65% of the people who have taken these tests.
+            慎以虑始，毅以图终。
           </p>
         </div>
         <div class="summary__cta">

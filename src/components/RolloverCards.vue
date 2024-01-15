@@ -1,8 +1,8 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-14 15:16:16
- * @LastEditors: 李一 yi_li_neu@neusoft.com
- * @LastEditTime: 2023-12-14 16:59:08
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2024-01-15 15:26:04
  * @FilePath: \year-report\src\components\RolloverCards.vue
  * @Description: 翻转卡片组件
 -->
@@ -12,7 +12,7 @@
     <p class="description">Hover over a card to flip it.</p>
     <a class="card" href="#!">
       <div class="front" :style="`background-image: url(${test})`">
-        <p>案例一</p>
+        <p>海南大数据</p>
       </div>
       <div class="back">
         <div>
@@ -29,7 +29,7 @@
         class="front"
         style="background-image: url(//source.unsplash.com/300x402)"
       >
-        <p>Lorem ipsum dolor sit amet consectetur adipisi.</p>
+        <p>扬州大数据</p>
       </div>
       <div class="back">
         <div>
@@ -46,7 +46,7 @@
         class="front"
         style="background-image: url(//source.unsplash.com/300x403)"
       >
-        <p>Lorem ipsum dolor sit amet consectetur adipisi.</p>
+        <p>河源大屏</p>
       </div>
       <div class="back">
         <div>
@@ -63,7 +63,7 @@
         class="front"
         style="background-image: url(//source.unsplash.com/300x404)"
       >
-        <p>Lorem ipsum dolor sit amet consectetur adipisi.</p>
+        <p>广西大屏</p>
       </div>
       <div class="back">
         <div>
@@ -80,7 +80,7 @@
         class="front"
         style="background-image: url(//source.unsplash.com/300x405)"
       >
-        <p>Lorem ipsum dolor sit amet consectetur adipisi.</p>
+        <p>常州个人档案库</p>
       </div>
       <div class="back">
         <div>
@@ -97,7 +97,7 @@
         class="front"
         style="background-image: url(//source.unsplash.com/300x406)"
       >
-        <p>Lorem ipsum dolor sit amet consectetur adipisi.</p>
+        <p>数字档案库</p>
       </div>
       <div class="back">
         <div>

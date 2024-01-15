@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-05 17:08:41
+ * @LastEditTime: 2024-01-15 15:31:54
  * @FilePath: \year-report\src\views\Home.vue
  * @Description: 首页
 -->
@@ -608,6 +608,7 @@ const tips = () => {
       width: 60%;
       margin-left: 20%;
       text-align: left;
+      font-size: 12px;
       list-style-type: circle;
     }
   }
