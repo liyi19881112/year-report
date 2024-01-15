@@ -2,7 +2,7 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-20 14:19:05
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2023-12-27 16:19:36
+ * @LastEditTime: 2024-01-15 10:10:11
  * @FilePath: \year-report-github\src\views\ItemDetail.vue
  * @Description: 详细内容展示
 -->
@@ -12,7 +12,7 @@
   <div class="product-detail">
     <s-header
       back="/home"
-      :name="`${currentItemDetail.name}项目详情`"
+      :name="`${currentItemDetail.name}详情`"
     ></s-header>
     <div class="detail-content">
       <div class="detail-swipe-wrap">
@@ -23,7 +23,7 @@
         />
       </div>
       <div class="product-info">
-        <div class="left">
+        <div class="left" v-if="currentItemDetail.id != 4">
           <rollover-cards v-if="currentItemDetail.id === 1"></rollover-cards>
           <show-books v-else-if="currentItemDetail.id === 5"></show-books>
           <up-down-rotate v-else-if="currentItemDetail.id === 3"></up-down-rotate>
@@ -144,12 +144,12 @@ const anchors = [
 ];
 // 所有需要展示的今年项目明细
 const totalItemDetail = [
-  { id: 1, name: "项目1", percentage: '100' },
-  { id: 2, name: "项目2", percentage: '100' },
-  { id: 3, name: "项目3", percentage: '100' },
-  { id: 4, name: "项目4", percentage: '100' },
-  { id: 5, name: "项目5", percentage: '100' },
-  { id: 6, name: "项目6", percentage: '20' },
+  { id: 1, name: "项目研发", percentage: '100' },
+  { id: 2, name: "漏洞修复", percentage: '100' },
+  { id: 3, name: "前端培训", percentage: '100' },
+  { id: 4, name: "诗词创作", percentage: '100' },
+  { id: 5, name: "兴趣阅读", percentage: '100' },
+  { id: 6, name: "自我成长", percentage: '20' },
 ];
 // 当前需要展示的项目明细
 const currentItemDetail = ref({});
