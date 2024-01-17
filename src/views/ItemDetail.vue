@@ -2,7 +2,7 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-20 14:19:05
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-15 10:10:11
+ * @LastEditTime: 2024-01-16 16:41:40
  * @FilePath: \year-report-github\src\views\ItemDetail.vue
  * @Description: 详细内容展示
 -->
@@ -122,7 +122,7 @@ const dialogShow = ref(false);
 const inputValue = ref("");
 // 滚动通知栏内容
 const noticeText = ref(
-  "今天天气晴好\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0明天也是好日子\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0欢迎大家来"
+  "2024年1月25日 天气：晴 西南风 距离过年还有15天\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0食堂人今天又是很多，鸡腿饭吃腻了，啥时候食堂能有旋转火锅呢\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0国民党大选没有获胜，两岸统一之路越发艰辛了"
 );
 // 增加加载loading
 const loadingInstance = ElLoading.service({

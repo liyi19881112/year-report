@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-15 15:31:54
+ * @LastEditTime: 2024-01-17 11:09:32
  * @FilePath: \year-report\src\views\Home.vue
  * @Description: 首页
 -->
@@ -93,8 +93,8 @@
           group="untodo"
           v-model="todoList2"
         >
-          <div v-for="item in todoList2" :key="item.id" class="cursor-move">
-            <div class="title">{{ item.name }}</div>
+          <div v-for="item in todoList2" :key="item.id" class="cursor-move" @mouseover="subTitleShow = item.id" @mouseout="subTitleShow = ''">
+            <div class="title">{{ item.name }}<span class="subTitle" v-if="item.subTitle&&subTitleShow === item.id">  --{{ item.subTitle }}</span></div>
             <ul>
               <li v-for="(detail,index) in item.value" :key="index">{{ detail }}</li>
             </ul>
@@ -129,29 +129,22 @@ const list = [
   { id: 7, text: "666" },
 ];
 
+// 控制副标题是否显隐
+const subTitleShow = ref('');
+
 // 拖拽表格遇到的坑，因为id作为for循环key，所以两个表格的id不能重复，否则拖拽的时候，会莫名消失
 // 待完成拖拽项目1
 const todoList1 = ref([
   {
     name: "完善技术栈",
     value: ['夯实js基础','前端设计模式','Web Components','Promise原理','web3D可视化技术'],
-    id: "1",
+    id: "1-1",
   },
   {
     name: "框架升级",
     value: ['组件平台化管理','集成权限控制','实用功能补全'],
-    id: "2",
-  },
-  {
-    name: "Johanna",
-    value: ['','','',''],
-    id: "3",
-  },
-  {
-    name: "Juan",
-    value: ['','','',''],
-    id: "4",
-  },
+    id: "2-1",
+  }
 ]);
 // 待完成拖拽项目2
 const todoList2 = ref([
@@ -166,14 +159,23 @@ const todoList2 = ref([
     id: "2-2",
   },
   {
-    name: "阅读",
-    value: [],
+    name: "阅读技术书籍",
+    value: ['Js红宝书','深入浅出Vue.js','JavaScript设计模式','node.js权威指南'],
     id: "3-2",
   },
+  // 人之能为人，由腹有诗书 -- 韩愈《符读书城南》
   {
-    name: "诗词",
-    value: [],
+    name: "课外阅读",
+    subTitle: "习读书之业，便当知读书之乐",
+    value: ['历史类3本','文学类4本','悬疑类3本','传记类3本','科普类2本'],
     id: "4-2",
+  },
+  // 读书已过五千卷，此墨足支三十年
+  {
+    name: "诗词创作",
+    subTitle: "读书已过五千卷，此墨足支三十年",
+    value: ['古诗3首','古词5首','现代诗3首'],
+    id: "5-2",
   },
 ]);
 
@@ -600,6 +602,9 @@ const tips = () => {
     text-align: center;
     margin: 0px;
     padding: 0px;
+    .subTitle {
+      font-size: 10px;
+    }
   }
   ul {
     height: 100px;
