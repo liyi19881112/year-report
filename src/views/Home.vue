@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-17 11:09:32
+ * @LastEditTime: 2024-01-17 14:45:12
  * @FilePath: \year-report\src\views\Home.vue
  * @Description: 首页
 -->
@@ -120,13 +120,13 @@ const router = useRouter();
 const reload = inject("reload");
 // 弹幕数据
 const list = [
-  { id: 1, text: "轻量" },
-  { id: 2, text: "可定制的" },
-  { id: 3, text: "移动端" },
-  { id: 4, text: "Vue" },
-  { id: 5, text: "前端培训" },
-  { id: 6, text: "VantUI" },
-  { id: 7, text: "666" },
+  { id: 1, text: "今天开始大家把工作电脑都带回家吧，有问题要及时响应" },
+  { id: 2, text: "劳动大厦，那是一个没有劳动法的地方" },
+  { id: 3, text: "好的，我研究一下" },
+  { id: 4, text: "不用看了，m表多了个空格" },
+  { id: 5, text: "问题已修复，请打版验证" },
+  { id: 6, text: "老师，帮忙看下啥问题啊" },
+  { id: 7, text: "咋样了 俊博 整一版啊 " },
 ];
 
 // 控制副标题是否显隐
@@ -154,8 +154,8 @@ const todoList2 = ref([
     id: "1-2",
   },
   {
-    name: "明天",
-    value: [],
+    name: "语言学习",
+    value: ['韩语音标','日常韩语词汇','英文词汇补充'],
     id: "2-2",
   },
   {
@@ -343,19 +343,19 @@ onMounted(async () => {
         id: Math.random(),
         text: list[4].text,
       });
-    }, 1000);
+    }, 2000);
     setTimeout(() => {
       barrageList.value.push({
         id: Math.random(),
         text: list[5].text,
       });
-    }, 1000);
+    }, 3000);
     setTimeout(() => {
       barrageList.value.push({
         id: Math.random(),
         text: list[6].text,
       });
-    }, 1000);
+    }, 4000);
   }, 8000);
   state.loading = false;
   closeToast();
@@ -576,11 +576,11 @@ const tips = () => {
   background-color: rgba(255, 255, 255, 0);
   position: absolute;
   top: 5%;
-  --van-barrage-font-size: 38px; // 弹幕字号
+  --van-barrage-font-size: 30px; // 弹幕字号
   --van-barrage-color: rgb(246, 194, 8, 0.5); // 弹幕字体颜色
 }
 .undo {
-  height: 600px;
+  height: 650px;
 }
 .cursor-move {
   height: 50px;

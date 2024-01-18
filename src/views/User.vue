@@ -1,8 +1,8 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
- * @LastEditors: 李一 yi_li_neu@neusoft.com
- * @LastEditTime: 2023-12-12 13:56:04
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2024-01-17 15:18:47
  * @FilePath: \year-report\src\views\User.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -55,7 +55,7 @@ onMounted(async () => {
 });
 
 let zindex = 1;
-// 创建一个愿望
+// 创建一个便签
 function creatWish(words) {
   let container = document.querySelector(".harvest");
   let div = document.createElement("div");
@@ -95,21 +95,22 @@ function getRandom(min, max) {
   let dec = max - min;
   return Math.floor(Math.random() * dec + min);
 }
-// 生成默认愿望
+// 生成默认便签内容
 function init() {
   let wishes = [
-    "参与前端培训",
-    "研发项目开发",
-    "阅读红宝书",
-    "少年鲜衣怒马",
-    "九子夺嫡",
+    "组织参与前端技术培训",
+    "vue3+ts研发项目开发",
+    "开始阅读js红宝书",
+    "爸爸的花儿落了， 我也不再是小孩子",
+    "lib-flexible移动端适配方案",
     "两三星火是瓜州",
     "一双鬼手，只为沉冤得雪;满怀佛心，唯愿天下太平",
     "移动端项目搭建与开发",
     "hive数据库适配",
+    "后端数据加密处理",
     "后端权限拦截与处理",
-    "蜜月川西之旅",
-    "Web Components",
+    "你看到云没有？那些都是天空的翅膀啊",
+    "四周是花香，是蜂鸣，春风拂面，是沾衣不染的海棠花雨。",
   ];
   for (let i = 0; i < wishes.length; i++) {
     let wish = wishes[i];
