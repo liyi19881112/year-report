@@ -2,7 +2,7 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2024-01-19 09:24:44
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-19 17:01:41
+ * @LastEditTime: 2024-01-19 17:28:15
  * @FilePath: \year-report-github\src\components\LongPress.vue
  * @Description: 长按弹出组件
 -->
@@ -16,7 +16,7 @@
     />
     <nut-animate type="twinkle" v-show="counter < 100" loop>
       <el-button ref="longPress" v-show="counter < 100" color="#626aef"
-        >长按打开机关</el-button
+        >长按打开惊喜</el-button
       >
     </nut-animate>
     <nut-popup
@@ -86,8 +86,7 @@ const prizeList = ref([
     id: "fruit",
     prizeColor: "rgba(246, 142, 46, 0.5)",
     prizeName: "培训大礼包",
-    prizeImg:
-      "https://img11.360buyimg.com/imagetools/jfs/t1/108308/11/8890/237603/5e6f157eE489cccf1/26e0437cfd93b9c8.png",
+    prizeImg: new URL("./images/心-礼包.svg", import.meta.url),
   },
   {
     id: "thanks",
@@ -117,11 +116,15 @@ const styleOpt = reactive({
 });
 // 中奖的奖品的index(此数据可根据后台返回的值重新赋值)
 const prizeIndex = ref(-1);
+// 转盘开始方法
 const startTurns = () => {
   prizeIndex.value = 4;
 };
+// 转盘结束方法
 const endTurns = () => {
-  showRight.value = true;
+  setTimeout(() => {
+    showRight.value = true;
+  }, 1000);
 };
 // 调用VueUse定时方法
 const { counter, reset, pause, resume } = useInterval(50, {
