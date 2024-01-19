@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-19 16:04:50
+ * @LastEditTime: 2024-01-19 17:00:01
  * @FilePath: \year-report\src\views\Home.vue
  * @Description: 首页
 -->
@@ -125,7 +125,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, nextTick, inject, onActivated } from "vue";
+import { ref, reactive, onMounted, nextTick, inject } from "vue";
 import { useRouter } from "vue-router";
 import swiper from "@/components/Swiper.vue";
 import navBar from "@/components/NavBar.vue";
@@ -388,10 +388,6 @@ onMounted(async () => {
   }, 8000);
   state.loading = false;
   closeToast();
-});
-
-onActivated(() => {
-  console.log("主页，是否缓存。。。。。");
 });
 
 nextTick(() => {

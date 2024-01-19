@@ -2,7 +2,7 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2024-01-19 09:24:44
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-19 15:39:03
+ * @LastEditTime: 2024-01-19 17:01:41
  * @FilePath: \year-report-github\src\components\LongPress.vue
  * @Description: 长按弹出组件
 -->
@@ -19,6 +19,12 @@
         >长按打开机关</el-button
       >
     </nut-animate>
+    <nut-popup
+      position="right"
+      z-index="99000"
+      :style="{ width: '40%', height: '100%' }"
+      v-model:visible="showRight"
+    ></nut-popup>
     <nutbig-marquee
       v-show="counter >= 100"
       :prize-list="prizeList"
@@ -38,6 +44,8 @@ import { onLongPress, useInterval, useMousePressed } from "@vueuse/core";
 const longPress = ref(null);
 // 对应长按触发的变量
 const longPressed = ref(false);
+// 右侧popup弹出框显隐控制变量
+const showRight = ref(false);
 // 改变触发变量值
 const onLongPressCallback = (e) => {
   longPressed.value = true;
@@ -77,7 +85,7 @@ const prizeList = ref([
   {
     id: "fruit",
     prizeColor: "rgba(246, 142, 46, 0.5)",
-    prizeName: "迪士尼苹果",
+    prizeName: "培训大礼包",
     prizeImg:
       "https://img11.360buyimg.com/imagetools/jfs/t1/108308/11/8890/237603/5e6f157eE489cccf1/26e0437cfd93b9c8.png",
   },
@@ -113,7 +121,7 @@ const startTurns = () => {
   prizeIndex.value = 4;
 };
 const endTurns = () => {
-  console.log("中奖了");
+  showRight.value = true;
 };
 // 调用VueUse定时方法
 const { counter, reset, pause, resume } = useInterval(50, {

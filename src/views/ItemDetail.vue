@@ -2,7 +2,7 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-20 14:19:05
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-19 16:05:16
+ * @LastEditTime: 2024-01-19 17:00:36
  * @FilePath: \year-report-github\src\views\ItemDetail.vue
  * @Description: 详细内容展示
 -->
@@ -97,7 +97,7 @@
 </template>
 
 <script setup>
-import { nextTick, onActivated, ref } from "vue";
+import { nextTick, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useCartStore } from "@/stores/cart";
 import sHeader from "@/components/SimpleHeader.vue";
@@ -180,10 +180,6 @@ nextTick(() => {
 const goTo = () => {
   router.push({ path: "/cart" });
 };
-
-onActivated(() => {
-  console.log("详情页，是否缓存。。。。。");
-});
 
 // 养老待遇享受情况数据
 const barData = ref({

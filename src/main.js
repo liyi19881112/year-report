@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-19 15:23:49
+ * @LastEditTime: 2024-01-19 16:56:57
  * @FilePath: \year-report\src\main.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -18,7 +18,10 @@ import router from './router'
 import slideIn from '@/components/vSlideIn'
 // 按需引入nutui
 import { Marquee } from "@nutui/nutui-bingo";
-import { Progress, Animate } from '@nutui/nutui';
+// import { Progress, Animate, Popup } from '@nutui/nutui';
+import NutUI from "@nutui/nutui"
+import { IconFont } from '@nutui/icons-vue';
+import '@nutui/icons-vue/dist/style_iconfont.css';
 import "@nutui/nutui-bingo/dist/style.css";
 import "@nutui/nutui/dist/style.css";
 
@@ -81,8 +84,10 @@ app.use(ActionBarButton)
   .use(CheckboxGroup)
   .use(Skeleton)
   .use(Marquee)
-  .use(Progress)
-  .use(Animate)
+  // .use(Progress)
+  // .use(Animate)
+  .use(IconFont)
+  .use(NutUI)
 
 // 定义全局平滑上升指令
 app.directive('slideIn', slideIn);
