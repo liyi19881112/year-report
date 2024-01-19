@@ -8,7 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@nutui/icons-vue": "^0.1.1",
+    "@nutui/nutui-bingo": "^1.0.7",
     "@vant/touch-emulator": "^1.4.0",
+    "@vueuse/core": "^10.6.1",
     "axios": "^1.2.6",
     "better-scroll": "2.3.0",
     "echarts": "^5.4.3",

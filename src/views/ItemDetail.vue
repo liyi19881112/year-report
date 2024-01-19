@@ -2,7 +2,7 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-20 14:19:05
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-16 16:41:40
+ * @LastEditTime: 2024-01-19 16:05:16
  * @FilePath: \year-report-github\src\views\ItemDetail.vue
  * @Description: 详细内容展示
 -->
@@ -29,6 +29,7 @@
           <up-down-rotate v-else-if="currentItemDetail.id === 3"></up-down-rotate>
           <red-books :itemId="itemId" v-else></red-books>
         </div>
+        <long-press v-if="currentItemDetail.id === 3"></long-press>
         <div class="product-intro" v-if="currentItemDetail.id != 1 && currentItemDetail.id != 5">
           <rotate-cards :itemId="itemId" v-if="currentItemDetail.id === 2"></rotate-cards>
           <hover-filter v-if="currentItemDetail.id === 4"></hover-filter>
@@ -96,7 +97,7 @@
 </template>
 
 <script setup>
-import { nextTick, ref } from "vue";
+import { nextTick, onActivated, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useCartStore } from "@/stores/cart";
 import sHeader from "@/components/SimpleHeader.vue";
@@ -111,6 +112,7 @@ import threeHoverCards from "@/components/ThreeHoverCards.vue";
 import scrollBall from "@/components/ScrollBall.vue"
 import upDownRotate from "@/components/UpDownRotate.vue"
 import sankeyChart from "@/components/SankeyChart.vue"
+import longPress from "@/components/LongPress.vue"
 import warning from "@/assets/warning.png";
 import * as echarts from "echarts";
 import { ElLoading, dayjs } from "element-plus";
@@ -122,7 +124,7 @@ const dialogShow = ref(false);
 const inputValue = ref("");
 // 滚动通知栏内容
 const noticeText = ref(
-  "2024年1月25日 天气：晴 西南风 距离过年还有15天\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0食堂人今天又是很多，鸡腿饭吃腻了，啥时候食堂能有旋转火锅呢\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0国民党大选没有获胜，两岸统一之路越发艰辛了"
+  `2024年1月25日 天气：晴 西南风 距离过年还有15天\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0食堂人今天又是很多，鸡腿饭吃腻了，啥时候食堂能有旋转火锅呢\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0国民党大选没有获胜，两岸统一之路越发艰辛了\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0上证跌破2800点，刷新2020年4月以来新低`
 );
 // 增加加载loading
 const loadingInstance = ElLoading.service({
@@ -178,6 +180,10 @@ nextTick(() => {
 const goTo = () => {
   router.push({ path: "/cart" });
 };
+
+onActivated(() => {
+  console.log("详情页，是否缓存。。。。。");
+});
 
 // 养老待遇享受情况数据
 const barData = ref({

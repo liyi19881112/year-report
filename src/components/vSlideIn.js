@@ -1,10 +1,10 @@
 /*
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-06 15:40:08
- * @LastEditors: 李一 yi_li_neu@neusoft.com
- * @LastEditTime: 2023-12-14 16:26:36
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2024-01-18 14:19:06
  * @FilePath: \newbee-mall-vue3-app\src\components\vSildeIn.js
- * @Description: 滚动平滑上升逻辑代码
+ * @Description: 滚动平滑上升逻辑自定义指令
  */
 //定义vSildeIn.js
 const distance = 150;

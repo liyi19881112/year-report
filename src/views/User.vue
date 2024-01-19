@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-17 15:18:47
+ * @LastEditTime: 2024-01-18 10:29:30
  * @FilePath: \year-report\src\views\User.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -104,12 +104,23 @@ function init() {
     "爸爸的花儿落了， 我也不再是小孩子",
     "lib-flexible移动端适配方案",
     "两三星火是瓜州",
+    "群体洞察、个人标签搜索主题研发",
+    "css3及canvas动画使用",
+    "少年的后背被女孩的悲伤烫出一个洞，一直贯穿到心脏",
+    "观察者设计模式初接触",
+    "不矜细行，终累大德。为山九仞，功亏一篑",
+    "vue3自定义指令编写实战",
     "一双鬼手，只为沉冤得雪;满怀佛心，唯愿天下太平",
-    "移动端项目搭建与开发",
-    "hive数据库适配",
-    "后端数据加密处理",
-    "后端权限拦截与处理",
+    "vant4移动端项目搭建与开发",
+    "hive数据库大屏后端框架适配",
+    "后端springboot数据库信息加密处理",
+    "vueUse第三方插件学习及使用",
+    "后端接口权限控制拦截与处理",
+    "ChromeDevTools调试技巧",
+    "ES6、vite、vue3等官方文档阅读",
     "你看到云没有？那些都是天空的翅膀啊",
+    "在js里用document原生方法创建元素class的时候，切记`<style>`里不能加scoped，否则元素class样式不会生效",
+    "纳兰性德是年羹尧的岳父，纳兰性德的父亲是武英殿大学士兼礼部尚书--纳兰明珠",
     "四周是花香，是蜂鸣，春风拂面，是沾衣不染的海棠花雨。",
   ];
   for (let i = 0; i < wishes.length; i++) {
@@ -211,7 +222,7 @@ function init() {
 <style lang="less">
 @import "../common/style/mixin";
 .item {
-  .wh(100px, 100px);
+  .wh(110px, 110px);
   padding: 20px;
   box-sizing: border-box;
   /* border: 1px solid black; */
@@ -226,7 +237,7 @@ function init() {
   top: 80px;
   /* 在文字处换行 */
   word-wrap: break-word;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .item .close {
@@ -235,5 +246,18 @@ function init() {
   top: 2px;
   font-size: 8px;
   cursor: pointer;
+}
+/* Webkit内核浏览器（如Chrome、Safari）的滚动条样式 */
+.item::-webkit-scrollbar {
+  width: 3px; /* 滚动条宽度 */
+}
+
+.item::-webkit-scrollbar-thumb {
+  background-color: #cac9c9; /* 滚动滑块的颜色 */
+  border-radius: 5px; /* 滚动滑块圆角 */
+}
+
+.item::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* 鼠标悬停在滚动滑块上时的颜色 */
 }
 </style>

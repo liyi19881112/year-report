@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-17 14:45:12
+ * @LastEditTime: 2024-01-19 16:04:50
  * @FilePath: \year-report\src\views\Home.vue
  * @Description: 首页
 -->
@@ -10,7 +10,7 @@
 <template>
   <div>
     <header class="home-header wrap" :class="{ active: state.headerScroll }">
-      <img v-show="!state.headerScroll" class="logo" :src="neusoft" alt="" >
+      <img v-show="!state.headerScroll" class="logo" :src="neusoft" alt="" />
       <p v-show="state.headerScroll">东软--产品规划发展部</p>
       <div class="header-search">
         <span class="app-name">李一年度成果展示</span>
@@ -83,7 +83,9 @@
           <div v-for="item in todoList1" :key="item.id" class="cursor-move">
             <div class="title">{{ item.name }}</div>
             <ul>
-              <li v-for="(detail,index) in item.value" :key="index">{{ detail }}</li>
+              <li v-for="(detail, index) in item.value" :key="index">
+                {{ detail }}
+              </li>
             </ul>
           </div>
         </VueDraggable>
@@ -93,10 +95,26 @@
           group="untodo"
           v-model="todoList2"
         >
-          <div v-for="item in todoList2" :key="item.id" class="cursor-move" @mouseover="subTitleShow = item.id" @mouseout="subTitleShow = ''">
-            <div class="title">{{ item.name }}<span class="subTitle" v-if="item.subTitle&&subTitleShow === item.id">  --{{ item.subTitle }}</span></div>
+          <div
+            v-for="item in todoList2"
+            :key="item.id"
+            class="cursor-move"
+            @mouseover="subTitleShow = item.id"
+            @mouseout="subTitleShow = ''"
+          >
+            <div class="title">
+              {{ item.name
+              }}<span
+                class="subTitle"
+                v-if="item.subTitle && subTitleShow === item.id"
+              >
+                --{{ item.subTitle }}</span
+              >
+            </div>
             <ul>
-              <li v-for="(detail,index) in item.value" :key="index">{{ detail }}</li>
+              <li v-for="(detail, index) in item.value" :key="index">
+                {{ detail }}
+              </li>
             </ul>
           </div>
         </VueDraggable>
@@ -107,13 +125,13 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, nextTick, inject } from "vue";
+import { ref, reactive, onMounted, nextTick, inject, onActivated } from "vue";
 import { useRouter } from "vue-router";
 import swiper from "@/components/Swiper.vue";
 import navBar from "@/components/NavBar.vue";
 import { VueDraggable } from "vue-draggable-plus";
 import { showLoadingToast, closeToast, showToast } from "vant";
-import neusoft from '@/assets/neusoft.png'
+import neusoft from "@/assets/neusoft.png";
 
 const router = useRouter();
 // APP里定义的重刷新事件，暂未使用
@@ -130,51 +148,62 @@ const list = [
 ];
 
 // 控制副标题是否显隐
-const subTitleShow = ref('');
+const subTitleShow = ref("");
 
 // 拖拽表格遇到的坑，因为id作为for循环key，所以两个表格的id不能重复，否则拖拽的时候，会莫名消失
 // 待完成拖拽项目1
 const todoList1 = ref([
   {
     name: "完善技术栈",
-    value: ['夯实js基础','前端设计模式','Web Components','Promise原理','web3D可视化技术'],
+    value: [
+      "夯实js基础",
+      "前端设计模式",
+      "Web Components",
+      "Promise原理",
+      "web3D可视化技术",
+    ],
     id: "1-1",
   },
   {
     name: "框架升级",
-    value: ['组件平台化管理','集成权限控制','实用功能补全'],
+    value: ["组件平台化管理", "集成权限控制", "实用功能补全"],
     id: "2-1",
-  }
+  },
 ]);
 // 待完成拖拽项目2
 const todoList2 = ref([
   {
     name: "技术探索",
-    value: ['Uniapp微信小程序', 'Tree sharking等性能优化'],
+    value: ["Uniapp微信小程序", "Tree sharking等性能优化"],
     id: "1-2",
   },
   {
     name: "语言学习",
-    value: ['韩语音标','日常韩语词汇','英文词汇补充'],
+    value: ["韩语音标", "日常韩语词汇", "英文词汇补充"],
     id: "2-2",
   },
   {
     name: "阅读技术书籍",
-    value: ['Js红宝书','深入浅出Vue.js','JavaScript设计模式','node.js权威指南'],
+    value: [
+      "Js红宝书",
+      "深入浅出Vue.js",
+      "JavaScript设计模式",
+      "node.js权威指南",
+    ],
     id: "3-2",
   },
   // 人之能为人，由腹有诗书 -- 韩愈《符读书城南》
   {
     name: "课外阅读",
     subTitle: "习读书之业，便当知读书之乐",
-    value: ['历史类3本','文学类4本','悬疑类3本','传记类3本','科普类2本'],
+    value: ["历史类3本", "文学类4本", "悬疑类3本", "传记类3本", "科普类2本"],
     id: "4-2",
   },
   // 读书已过五千卷，此墨足支三十年
   {
     name: "诗词创作",
     subTitle: "读书已过五千卷，此墨足支三十年",
-    value: ['古诗3首','古词5首','现代诗3首'],
+    value: ["古诗3首", "古词5首", "现代诗3首"],
     id: "5-2",
   },
 ]);
@@ -361,6 +390,10 @@ onMounted(async () => {
   closeToast();
 });
 
+onActivated(() => {
+  console.log("主页，是否缓存。。。。。");
+});
+
 nextTick(() => {
   // 监听滚动条，动态设置头部组件背景样式
   document.body.addEventListener("scroll", () => {
@@ -381,7 +414,6 @@ const goToDetail = (item) => {
 const tips = () => {
   showToast("敬请期待");
 };
-
 </script>
 
 <style lang="less" scoped>

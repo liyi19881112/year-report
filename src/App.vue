@@ -1,15 +1,19 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
- * @LastEditors: 李一 yi_li_neu@neusoft.com
- * @LastEditTime: 2023-12-14 10:19:04
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2024-01-19 16:22:27
  * @FilePath: \year-report\src\App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 
 <template>
   <div id="app">
-    <RouterView v-if="isRouterAlive" />
+    <router-view v-slot="{ Component }">
+      <!-- <keep-alive include="ItemDetail"> -->
+      <component :is="Component" />
+      <!-- </keep-alive> -->
+    </router-view>
   </div>
 </template>
 

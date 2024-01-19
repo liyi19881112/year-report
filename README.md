@@ -1,13 +1,13 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
- * @LastEditors: liyi19881112 71474753+liyi19881112@users.noreply.github.com
- * @LastEditTime: 2023-12-25 15:30:45
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2024-01-19 10:03:58
  * @FilePath: \year-report\README.md
  * @Description: 笔记汇总
 -->
 ## 技术栈
-vue3 + pinia + vant4 + vite + vue-router + ES6 + sass/less + element-plus + echarts
+Vue3 + Pinia + Vant4 + Vite + vue-router + ES6 + sass/less + Element-Plus + Echarts + lodash + VueUse + NutUI
 
 ## 项目使用依赖汇总
 - npm i @vant/touch-emulator -S
@@ -40,6 +40,11 @@ vue3 + pinia + vant4 + vite + vue-router + ES6 + sass/less + element-plus + echa
 
 ***
 
+- npm i @nutui/nutui-bingo
+> NutUI-Bingo 是一个基于 NutUI 的抽奖组件库，京东风格的轻量级移动端组件库
+
+***
+
 ## 项目遇到的问题汇总
 - 在js里用document原生方法创建元素class的时候，切记`<style>`里不能加scoped，否则元素class样式不会生效
 - 字符串里的空格，请使用`\xa0`来标识
@@ -62,4 +67,4 @@ vue3 + pinia + vant4 + vite + vue-router + ES6 + sass/less + element-plus + echa
     2、变量使用语法是：var()函数用于读取变量 var(--*)   
     3、其中 * 表示我们的变量名称    
     4、变量名大小写敏感，--header-color和--Header-Color是两个不同变量   
-- 
+- WeakMap相比普通map优势在于可以避免内存泄露，WeakMap 只接受对象作为键名，当key为null时，引用对象会被回收，而map的引用对象不会被回收，所以WeakMap可以避免内存泄露。WeakMap 不可遍历，不像 Map，一是没有遍历操作（即没有keys()、values()和entries()方法），也没有 size 属性，也不支持 clear 方法，所以 WeakMap只有四个方法可用：get()、set()、has()、delete()。

@@ -22,8 +22,9 @@
   position: relative;
   border-radius: 40px;
   transition: all 0.8s;
-  margin-left: 30px;
+  margin-left: 20px;
   perspective: 600px;
+  overflow: hidden;
   perspective-origin: center bottom;
 }
 
