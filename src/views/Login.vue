@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:37:07
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-15 15:37:50
+ * @LastEditTime: 2024-01-23 16:24:53
  * @FilePath: \newbee-mall-vue3-app\src\views\LoginNew.vue
  * @Description: 登录页面
 -->
@@ -67,7 +67,7 @@ const onSubmit = async () => {
     //   "loginName": '15998267825',
     //   "passwordMd5": md5('ly12251212')
     // })
-    setLocal('login', state.username)
+    setLocal('login', state.username + '已登录')
     // 需要刷新页面，否则home页面背景乱码
     window.location.href = '/'
   } else {

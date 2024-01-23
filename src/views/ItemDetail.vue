@@ -2,11 +2,10 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-20 14:19:05
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-19 17:00:36
+ * @LastEditTime: 2024-01-23 16:23:54
  * @FilePath: \year-report-github\src\views\ItemDetail.vue
  * @Description: 详细内容展示
 -->
-
 
 <template>
   <div class="product-detail">
@@ -19,6 +18,7 @@
         <van-notice-bar
           left-icon="volume-o"
           :scrollable="true"
+          speed="140"
           :text="noticeText"
         />
       </div>
@@ -117,15 +117,63 @@ import warning from "@/assets/warning.png";
 import * as echarts from "echarts";
 import { ElLoading, dayjs } from "element-plus";
 import { showSuccessToast, showToast, showFailToast } from "vant";
+import { setLocal, getLocal } from '@/common/js/utils'
+import { getWeather, getHot } from '@/service/funApi'
 const route = useRoute();
 const router = useRouter();
 const cart = useCartStore();
 const dialogShow = ref(false);
 const inputValue = ref("");
 // 滚动通知栏内容
-const noticeText = ref(
-  `2024年1月25日 天气：晴 西南风 距离过年还有15天\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0食堂人今天又是很多，鸡腿饭吃腻了，啥时候食堂能有旋转火锅呢\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0国民党大选没有获胜，两岸统一之路越发艰辛了\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0上证跌破2800点，刷新2020年4月以来新低`
-);
+const noticeText = ref("");
+// const noticeText = ref(
+//   '2024年1月25日 天气：晴 西南风 距离过年还有15天\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0食堂人今天又是很多，鸡腿饭吃腻了，啥时候食堂能有旋转火锅呢\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0国民党大选没有获胜，两岸统一之路越发艰辛了\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0上证跌破2800点，刷新2020年4月以来新低'
+// );
+// 获取到过年时间差
+const diffDay = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\距离过年还有' + dayjs('2024-02-09').diff(dayjs(),'day') + '天\xa0\xa0\xa0\ '
+noticeText.value += diffDay;
+// 根据缓存来判断是否显示天气
+if(!getLocal("weather")) {
+  setTimeout(() => {
+    noticeText.value += getLocal("weather")
+  }, 2000)
+} else {
+  noticeText.value += getLocal("weather")
+}
+// 根据缓存来判断是否显示微博热搜
+if(!getLocal("hot")) {
+  setTimeout(() => {
+    noticeText.value += getLocal("hot")
+  }, 2000)
+} else {
+  noticeText.value += getLocal("hot")
+}
+
+
+// 获取天气预报信息
+const getWeatherInfo = async () => {
+  const { data: weatherInfo} = await getWeather()
+  let locWeather = ''
+  // 对天气预报数据进行处理
+  if ( weatherInfo ) {
+    const { province, city, temperature, weather, winddirection, windpower, humidity, reporttime } = weatherInfo.lives[0]
+    locWeather = '天气情况为：' + reporttime + ' ' + province + '省 ' + city + ' ' + weather + ' ' + winddirection + '风 风力：' + windpower + ' 温度：' + temperature + ' 湿度：' + humidity + '\xa0\xa0\xa0\xa0\xa0\xa0\ '
+  }
+  setLocal('weather', locWeather)
+  console.log('天气接口信息', weatherInfo)
+}
+// 获取微博热搜榜
+const getWeiboHot = async () => {
+  const { data: hotInfo } = await getHot()
+  let locHot = ''
+  // 对微博热搜数据进行处理
+  if ( hotInfo ) {
+    const hotArray = hotInfo.data[0].hot
+    locHot = '当日微博热搜内容：' + hotArray.map((item, index) => `${index + 1}、${item.title}`).join(' ');
+  }
+  setLocal('hot', locHot)
+  console.log('微博热搜接口信息', hotInfo)
+}
 // 增加加载loading
 const loadingInstance = ElLoading.service({
   target: document.querySelector(".product-detail"),
@@ -174,6 +222,18 @@ nextTick(() => {
   if (cart.doubleConfirm) {
     document.querySelector(".detail-content-filter").style.display = 'none';
     loadingInstance.close()
+  }
+  // 先根据缓存判断是否已经请求天气预报信息，防止重复请求
+  if (!getLocal("weather")) {
+    // 没有缓存，请求数据
+    console.log("请求天气信息");
+    getWeatherInfo();
+  }
+  // 先根据缓存判断是否已经请求微博热搜信息，防止重复请求
+  if (!getLocal("hot")) {
+    // 没有缓存，请求数据
+    console.log("请求微博热搜信息");
+    getWeiboHot();
   }
 });
 

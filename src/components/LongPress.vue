@@ -2,7 +2,7 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2024-01-19 09:24:44
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-19 17:28:15
+ * @LastEditTime: 2024-01-19 20:05:09
  * @FilePath: \year-report-github\src\components\LongPress.vue
  * @Description: 长按弹出组件
 -->
@@ -24,7 +24,9 @@
       z-index="99000"
       :style="{ width: '40%', height: '100%' }"
       v-model:visible="showRight"
-    ></nut-popup>
+    >
+    <img :src="img1"/>
+  </nut-popup>
     <nutbig-marquee
       v-show="counter >= 100"
       :prize-list="prizeList"
@@ -40,6 +42,7 @@
 
 <script setup>
 import { ref, reactive, watch } from "vue";
+import img1 from "./images/云边有个小卖部.jpg"
 import { onLongPress, useInterval, useMousePressed } from "@vueuse/core";
 const longPress = ref(null);
 // 对应长按触发的变量
@@ -156,6 +159,10 @@ watch(pressed, (val) => {
   }
   :deep(.nut-progress .nut-progress-outer) {
     background-color: rgb(230, 217, 183);
+  }
+  img {
+    width: 200px;
+    height: 100px;
   }
 }
 </style>

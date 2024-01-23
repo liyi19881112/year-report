@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-18 13:58:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2023-12-26 15:07:57
+ * @LastEditTime: 2024-01-23 14:28:52
  * @FilePath: \year-report\src\components\ShowBooks.vue
  * @Description: 书架展示组件
 -->
@@ -95,7 +95,6 @@
           <flipbook
             class="flipbook"
             :singlePage="true"
-            :wheel="zoom"
             :pages="page9"
           ></flipbook>
         </li>
@@ -103,7 +102,6 @@
           <flipbook
             class="flipbook"
             :singlePage="true"
-            :wheel="zoom"
             :pages="page10"
           ></flipbook>
         </li>

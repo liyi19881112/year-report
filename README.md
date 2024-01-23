@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-19 10:03:58
+ * @LastEditTime: 2024-01-22 11:41:34
  * @FilePath: \year-report\README.md
  * @Description: 笔记汇总
 -->
@@ -68,3 +68,9 @@ Vue3 + Pinia + Vant4 + Vite + vue-router + ES6 + sass/less + Element-Plus + Echa
     3、其中 * 表示我们的变量名称    
     4、变量名大小写敏感，--header-color和--Header-Color是两个不同变量   
 - WeakMap相比普通map优势在于可以避免内存泄露，WeakMap 只接受对象作为键名，当key为null时，引用对象会被回收，而map的引用对象不会被回收，所以WeakMap可以避免内存泄露。WeakMap 不可遍历，不像 Map，一是没有遍历操作（即没有keys()、values()和entries()方法），也没有 size 属性，也不支持 clear 方法，所以 WeakMap只有四个方法可用：get()、set()、has()、delete()。
+- 天气预报是调用的高德开放平台的接口数据，https://console.amap.com/dev/key/app
+- 调取微博热榜用的是云析API平台，https://api.a20safe.com/
+- Element-plus组件库默认支持 dayjs 进行日期时间处理，所以可以直接导入使用
+```
+import { dayjs } from 'element-plus'
+```
