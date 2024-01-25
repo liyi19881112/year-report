@@ -113,6 +113,10 @@ const router = createRouter({
         index: 2
       }
     },
+    {
+      path: '/reel-scroll',
+      component: () => import('@/views/ReelScroll.vue')
+    },
   ]
 })
 

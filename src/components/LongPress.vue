@@ -2,7 +2,7 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2024-01-19 09:24:44
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-19 20:05:09
+ * @LastEditTime: 2024-01-23 16:44:00
  * @FilePath: \year-report-github\src\components\LongPress.vue
  * @Description: 长按弹出组件
 -->
@@ -26,6 +26,7 @@
       v-model:visible="showRight"
     >
     <img :src="img1"/>
+    <h1>测试内容及图片</h1>
   </nut-popup>
     <nutbig-marquee
       v-show="counter >= 100"
