@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-26 11:14:01
+ * @LastEditTime: 2024-01-30 14:48:09
  * @FilePath: \year-report\README.md
  * @Description: 笔记汇总
 -->
@@ -67,7 +67,7 @@ Vue3 + Pinia + Vant4 + Vite + vue-router + ES6 + sass/less + Element-Plus + Echa
     </style>
 ```
 - css中引用vue3的变量，可以使用v-bind()，切记，如果是使用对象属性值，需要包括在引号中，例如vue3中定义一个`const theme = {color: 'red'}`,css中需要`p {color: v-bind('theme.color');}`
-- css原生使用变量   
+- css原生使用变量     
     1、css中原生的变量定义语法是：变量名前面要加两根连词线 --*  
     2、变量使用语法是：var()函数用于读取变量 var(--*)   
     3、其中 * 表示我们的变量名称    
@@ -79,3 +79,12 @@ Vue3 + Pinia + Vant4 + Vite + vue-router + ES6 + sass/less + Element-Plus + Echa
 ```
 import { dayjs } from 'element-plus'
 ```
+- 常用快捷键，依赖koroFileHeader与Eclipse Keymap插件使用    
+    1、`ctrl + win + t` 多行方法注释    
+    2、`ctrl + win + i` 文件最上方注释  
+    3、`ctrl + win + j` 随机生成注释图案    
+    4、`ctrl + /` 生成行注释  
+    5、`ctrl + shift + /` 生成块注释  
+    6、`alt + up/down` 代码块上移下移   
+    7、`ctrl + d` 删除行代码    
+    8、`alt + p` 触发通义灵码内联建议   
