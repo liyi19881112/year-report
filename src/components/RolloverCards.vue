@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-14 15:16:16
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-30 10:49:58
+ * @LastEditTime: 2024-01-30 15:20:20
  * @FilePath: \year-report\src\components\RolloverCards.vue
  * @Description: 翻转卡片组件
 -->
@@ -10,7 +10,7 @@
   <div class="content">
     <h1 class="heading">2023年主要参与项目汇总</h1>
     <p class="description">悬浮翻转以查看工作内容详情</p>
-    <a class="card" href="#!">
+    <a class="card" >
       <div class="front" :style="`background-image: url(${test})`">
         <p>海南大数据</p>
       </div>
@@ -23,7 +23,7 @@
           <button class="button">页面开发</button>
         </div>
       </div></a
-    ><a class="card" href="#!">
+    ><a class="card" >
       <div
         class="front"
         style="background-image: url(//source.unsplash.com/300x402)"
@@ -38,7 +38,7 @@
           <button class="button">页面开发</button>
         </div>
       </div></a
-    ><a class="card" href="#!">
+    ><a class="card" >
       <div
         class="front"
         style="background-image: url(//source.unsplash.com/300x403)"
@@ -51,7 +51,7 @@
           <button class="button">技术支持</button>
         </div>
       </div></a
-    ><a class="card" href="#!">
+    ><a class="card" >
       <div
         class="front"
         style="background-image: url(//source.unsplash.com/300x404)"
@@ -64,7 +64,7 @@
           <button class="button">技术支持</button>
         </div>
       </div></a
-    ><a class="card" href="#!">
+    ><a class="card" >
       <div
         class="front"
         style="background-image: url(//source.unsplash.com/300x405)"
@@ -81,7 +81,7 @@
           <button class="button">页面开发</button>
         </div>
       </div></a
-    ><a class="card" href="#!">
+    ><a class="card" >
       <div
         class="front"
         style="background-image: url(//source.unsplash.com/300x406)"

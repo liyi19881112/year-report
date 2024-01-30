@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-13 15:11:23
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-30 13:32:47
+ * @LastEditTime: 2024-01-30 15:16:41
  * @FilePath: \year-report\src\components\Gallery.vue
  * @Description: 照片画廊悬停组件
 -->
@@ -19,7 +19,29 @@
 <script setup>
 import test1_1 from "./images/test.jpg";
 import test1_2 from "./images/云边有个小卖部.jpg";
+import test1_3 from "./images/云边有个小卖部.jpg";
+import test1_4 from "./images/云边有个小卖部.jpg";
+import test1_5 from "./images/云边有个小卖部.jpg";
 import test2_1 from "./images/content.jpg";
+import test2_2 from "./images/云边有个小卖部.jpg";
+import test2_3 from "./images/云边有个小卖部.jpg";
+import test2_4 from "./images/云边有个小卖部.jpg";
+import test2_5 from "./images/云边有个小卖部.jpg";
+import test3_1 from "./images/content.jpg";
+import test3_2 from "./images/云边有个小卖部.jpg";
+import test3_3 from "./images/云边有个小卖部.jpg";
+import test3_4 from "./images/云边有个小卖部.jpg";
+import test3_5 from "./images/云边有个小卖部.jpg";
+import test4_1 from "./images/content.jpg";
+import test4_2 from "./images/云边有个小卖部.jpg";
+import test4_3 from "./images/云边有个小卖部.jpg";
+import test4_4 from "./images/云边有个小卖部.jpg";
+import test4_5 from "./images/云边有个小卖部.jpg";
+import test5_1 from "./images/content.jpg";
+import test5_2 from "./images/云边有个小卖部.jpg";
+import test5_3 from "./images/云边有个小卖部.jpg";
+import test5_4 from "./images/云边有个小卖部.jpg";
+import test5_5 from "./images/云边有个小卖部.jpg";
 
 const props = defineProps({
   itemId: String,
@@ -31,8 +53,52 @@ const getImg = (id) => {
       return test1_1;
     case "1_2":
       return test1_2;
+    case "1_3":
+      return test1_3;
+    case "1_4":
+      return test1_4;
+    case "1_5":
+      return test1_5;
     case "2_1":
       return test2_1;
+    case "2_2":
+      return test2_2;
+    case "2_3":
+      return test2_3;
+    case "2_4":
+      return test2_4;
+    case "2_5":
+      return test2_5;
+    case "3_1":
+      return test3_1;
+    case "3_2":
+      return test3_2;
+    case "3_3":
+      return test3_3;
+    case "3_4":
+      return test3_4;
+    case "3_5":
+      return test3_5;
+    case "4_1":
+      return test4_1;
+    case "4_2":
+      return test4_2;
+    case "4_3":
+      return test4_3;
+    case "4_4":
+      return test4_4;
+    case "4_5":
+      return test4_5;
+    case "5_1":
+      return test5_1;
+    case "5_2":
+      return test5_2;
+    case "5_3":
+      return test5_3;
+    case "5_4":
+      return test5_4;
+    case "5_5":
+      return test5_5;
     default:
       return test1_1;
   }
@@ -60,9 +126,9 @@ const getImg = (id) => {
     display: flex;
     justify-content: center;
     align-content: center;
-    filter: grayscale(1) brightness(1); // 设置容器的灰度和亮度
+    filter: grayscale(1) brightness(0.9); // 设置容器的灰度和亮度
     &:hover {
-      filter: grayscale(0) brightness(1.25); // 鼠标悬停的图片灰度去掉，提高亮度
+      filter: grayscale(0) brightness(1.05); // 鼠标悬停的图片灰度去掉，提高亮度
     }
     // 图片上下区域增加渐变效果
     &::before {
@@ -73,11 +139,11 @@ const getImg = (id) => {
       width: 100%;
       height: 100%;
       background: linear-gradient(
-        #000,
+        rgba(0,0,0,0.8),
         transparent,
         transparent,
         transparent,
-        #000
+        rgba(0,0,0,0.8)
       );
       transition: 0.25s;
     }

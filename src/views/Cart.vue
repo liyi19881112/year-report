@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-30 11:12:53
+ * @LastEditTime: 2024-01-30 14:23:08
  * @FilePath: \newbee-mall-vue3-app\src\views\Cart.vue
  * @Description: 结算单页面
 -->
@@ -26,7 +26,7 @@
       >
         <div class="title">{{ item.name }}</div>
         <gallery :itemId="item.id + ''"></gallery>
-        <seal :itemId="item.id" :currentTime="item.currentTime"></seal>
+        <seal :itemId="item.id + ''" :currentTime="item.currentTime"></seal>
       </div>
     </div>
   </div>
