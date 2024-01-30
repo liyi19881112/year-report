@@ -1,8 +1,8 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
- * @LastEditors: 李一 yi_li_neu@neusoft.com
- * @LastEditTime: 2023-12-08 16:01:21
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2024-01-26 15:57:51
  * @FilePath: \newbee-mall-vue3-app\src\components\NavBar.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -18,11 +18,11 @@
         <i class="nbicon nbfenlei"></i>
         <span>分类</span>
       </router-link> -->
-      <router-link  class="nav-list-item" to="cart">
+      <router-link id="step6" class="nav-list-item" to="cart">
         <i><van-icon  name="point-gift-o" :badge="!cart.count ? '' : cart.count" /></i>
         <span>结算单</span>
       </router-link>
-      <router-link  class="nav-list-item" :to="{ path: '/user'}">
+      <router-link id="step7" class="nav-list-item" :to="{ path: '/user'}">
         <i class="nbicon nblvsefenkaicankaoxianban-"></i>
         <span>我的收获</span>
       </router-link>

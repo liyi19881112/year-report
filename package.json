@@ -18,6 +18,7 @@
     "element-plus": "^2.4.2",
     "element-resize-detector": "^1.2.4",
     "flipbook-vue": "^1.0.0-beta.4",
+    "intro.js": "^7.2.0",
     "js-md5": "^0.7.3",
     "lib-flexible": "^0.3.2",
     "lodash": "^4.17.21",

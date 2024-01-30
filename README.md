@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-22 11:41:34
+ * @LastEditTime: 2024-01-26 11:14:01
  * @FilePath: \year-report\README.md
  * @Description: 笔记汇总
 -->
@@ -42,6 +42,11 @@ Vue3 + Pinia + Vant4 + Vite + vue-router + ES6 + sass/less + Element-Plus + Echa
 
 - npm i @nutui/nutui-bingo
 > NutUI-Bingo 是一个基于 NutUI 的抽奖组件库，京东风格的轻量级移动端组件库
+
+***
+
+- npm install intro.js
+> 介绍页面引导插件
 
 ***
 

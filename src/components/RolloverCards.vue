@@ -2,26 +2,25 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-14 15:16:16
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-15 15:26:04
+ * @LastEditTime: 2024-01-30 10:49:58
  * @FilePath: \year-report\src\components\RolloverCards.vue
  * @Description: 翻转卡片组件
 -->
 <template>
   <div class="content">
-    <h1 class="heading">Card Flip</h1>
-    <p class="description">Hover over a card to flip it.</p>
+    <h1 class="heading">2023年主要参与项目汇总</h1>
+    <p class="description">悬浮翻转以查看工作内容详情</p>
     <a class="card" href="#!">
       <div class="front" :style="`background-image: url(${test})`">
         <p>海南大数据</p>
       </div>
       <div class="back">
         <div>
-          <p>Consectetur adipisicing elit. Possimus, praesentium?</p>
+          <p>海南大数据与门户系统对接工作支持;</p>
           <p>
-            Provident consectetur natus voluptatem quis tenetur sed beatae eius
-            sint.
+            失业保险指数、就业景气指数、充分就业、就业平等、就业市场、失业预警等页面开发。
           </p>
-          <button class="button">Click Here</button>
+          <button class="button">页面开发</button>
         </div>
       </div></a
     ><a class="card" href="#!">
@@ -33,12 +32,10 @@
       </div>
       <div class="back">
         <div>
-          <p>Consectetur adipisicing elit. Possimus, praesentium?</p>
-          <p>
-            Provident consectetur natus voluptatem quis tenetur sed beatae eius
-            sint.
-          </p>
-          <button class="button">Click Here</button>
+          <p>现场页面问题对应</p>
+          <p>配合完成扬州主题样式切换工作</p>
+          <p>增加菜单通过登录权限动态获取</p>
+          <button class="button">页面开发</button>
         </div>
       </div></a
     ><a class="card" href="#!">
@@ -50,12 +47,8 @@
       </div>
       <div class="back">
         <div>
-          <p>Consectetur adipisicing elit. Possimus, praesentium?</p>
-          <p>
-            Provident consectetur natus voluptatem quis tenetur sed beatae eius
-            sint.
-          </p>
-          <button class="button">Click Here</button>
+          <p>支持现场菜单及滚动主页开发</p>
+          <button class="button">技术支持</button>
         </div>
       </div></a
     ><a class="card" href="#!">
@@ -67,12 +60,8 @@
       </div>
       <div class="back">
         <div>
-          <p>Consectetur adipisicing elit. Possimus, praesentium?</p>
-          <p>
-            Provident consectetur natus voluptatem quis tenetur sed beatae eius
-            sint.
-          </p>
-          <button class="button">Click Here</button>
+          <p>权限控制及门户对接</p>
+          <button class="button">技术支持</button>
         </div>
       </div></a
     ><a class="card" href="#!">
@@ -89,7 +78,7 @@
             Provident consectetur natus voluptatem quis tenetur sed beatae eius
             sint.
           </p>
-          <button class="button">Click Here</button>
+          <button class="button">页面开发</button>
         </div>
       </div></a
     ><a class="card" href="#!">
@@ -101,12 +90,10 @@
       </div>
       <div class="back">
         <div>
-          <p>Consectetur adipisicing elit. Possimus, praesentium?</p>
-          <p>
-            Provident consectetur natus voluptatem quis tenetur sed beatae eius
-            sint.
-          </p>
-          <button class="button">Click Here</button>
+          <p>个人标签搜索页面开发</p>
+          <p>群体洞察页面开发</p>
+          <p>企业全息画像-基础档案页面开发</p>
+          <button class="button">页面开发</button>
         </div>
       </div></a
     >
@@ -151,7 +138,7 @@ $orange: hsl(50, 80%, 50%);
   width: 100%;
   margin-left: 1rem;
   font-weight: 900;
-  font-size: 1.618rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1ch;
   line-height: 1;
@@ -172,6 +159,7 @@ $orange: hsl(50, 80%, 50%);
 
 .description {
   width: 100%;
+  font-size: 0.5rem;
   margin-top: 0;
   margin-left: 1rem;
 }
@@ -245,6 +233,7 @@ $orange: hsl(50, 80%, 50%);
 .back {
   background: #fff;
   transform: rotateY(-180deg);
+  font-size: 10px;
   padding: 0 2em;
 
   .button {
@@ -286,7 +275,6 @@ $orange: hsl(50, 80%, 50%);
 .button {
   $height: 40px;
   transform: translateZ($height);
-  cursor: pointer;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   font-weight: bold;

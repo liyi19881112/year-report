@@ -1,8 +1,8 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-15 09:42:16
- * @LastEditors: 李一 yi_li_neu@neusoft.com
- * @LastEditTime: 2023-12-20 09:13:21
+ * @LastEditors: 李一 375987927@qq.com
+ * @LastEditTime: 2024-01-30 10:57:44
  * @FilePath: \year-report\src\components\RedBooks.vue
  * @Description: 小红书同款互动卡片
 -->
@@ -36,8 +36,8 @@
     <div class="card green">
       <div class="additional">
         <div class="user-card">
-          <div class="level center">Level 13</div>
-          <div class="points center">5,312 Points</div>
+          <div class="level center">{{ currentItemDetail.text9 }}</div>
+          <div class="points center">{{ currentItemDetail.text10 }}</div>
         </div>
         <div class="more-info">
           <h1>Jane Doe</h1>
@@ -74,7 +74,7 @@ const props = defineProps({
 // 不同项目信息
 const itemCards = [
   {
-    text1: '项目一主标题一',
+    text1: '漏洞修复',
     text2: '左侧副标题一',
     text3: '右侧标题上',
     text4: '右侧默认显示内容上',
@@ -82,32 +82,21 @@ const itemCards = [
     text6: "右侧标题下",
     text7: "1、右侧内容下我是乱七八糟写的，不要当真1",
     text8: "2、右侧内容下我是乱七八糟写的，不要当真2",
+    text9: "测试数据1",
+    text10: "测试数据2",
     id: "2",
   },
   {
-    text1: '项目二',
+    text1: '个人成长',
     text2: '副标题',
     text3: '右侧标题',
     text4: '',
     text5: "测试数据1",
-    text6: "测试数据1",
-    text7: "测试数据1",
-    text8: "测试数据1",
-    text9: "测试数据1",
-    text10: "测试数据1",
-    id: "4",
-  },
-  {
-    text1: '项目三',
-    text2: '副标题',
-    text3: '右侧标题',
-    text4: '',
-    text5: "测试数据1",
-    text6: "测试数据1",
-    text7: "测试数据1",
-    text8: "测试数据1",
-    text9: "测试数据1",
-    text10: "测试数据1",
+    text6: "测试数据2",
+    text7: "测试数据3",
+    text8: "测试数据4",
+    text9: "测试数据5",
+    text10: "测试数据6",
     id: "6",
   },
 ];

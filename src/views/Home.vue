@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-19 17:00:01
+ * @LastEditTime: 2024-01-30 09:22:30
  * @FilePath: \year-report\src\views\Home.vue
  * @Description: 首页
 -->
@@ -34,8 +34,8 @@
       rows="8"
       class="barrage"
     ></van-barrage>
-    <swiper :list="state.swiperList"></swiper>
-    <div class="category-list">
+    <swiper id="step1" :list="state.swiperList"></swiper>
+    <div id="step2" class="category-list">
       <div
         v-for="item in state.categoryList"
         v-bind:key="item.categoryId"
@@ -45,7 +45,7 @@
         <span>{{ item.name }}</span>
       </div>
     </div>
-    <div class="good">
+    <div id="step3" class="good">
       <header class="good-header">轮回有道红尘过--今年进度列表</header>
       <van-skeleton title :row="3" :loading="state.loading">
         <div class="good-box">
@@ -67,7 +67,7 @@
         </div>
       </van-skeleton>
     </div>
-    <div class="good undo">
+    <div id="step4" class="good undo">
       <header class="good-header">不负今生不负卿--来年目标规划</header>
       <div class="undo-title-box">
         <div class="undo-title">势在必行</div>
@@ -120,7 +120,7 @@
         </VueDraggable>
       </div>
     </div>
-    <nav-bar></nav-bar>
+    <nav-bar id="step5"></nav-bar>
   </div>
 </template>
 
@@ -132,6 +132,12 @@ import navBar from "@/components/NavBar.vue";
 import { VueDraggable } from "vue-draggable-plus";
 import { showLoadingToast, closeToast, showToast } from "vant";
 import neusoft from "@/assets/neusoft.png";
+import { setLocal, getLocal } from '@/common/js/utils'
+// 首页引导插件
+import intro from 'intro.js' // introjs库
+import 'intro.js/introjs.css' // introjs默认css样式
+// introjs还提供了多种主题，可以通过以下方式引入
+import 'intro.js/themes/introjs-modern.css' // introjs主题
 
 const router = useRouter();
 // APP里定义的重刷新事件，暂未使用
@@ -165,8 +171,8 @@ const todoList1 = ref([
     id: "1-1",
   },
   {
-    name: "框架升级",
-    value: ["组件平台化管理", "集成权限控制", "实用功能补全"],
+    name: "大屏框架升级",
+    value: ["核心组件抽取统一管理", "增加页面调试模式", "以往实用功能补全", "常用组件展示平台"],
     id: "2-1",
   },
 ]);
@@ -183,9 +189,9 @@ const todoList2 = ref([
     id: "2-2",
   },
   {
-    name: "阅读技术书籍",
+    name: "阅读前端技术书籍",
     value: [
-      "Js红宝书",
+      "Js红宝书4版",
       "深入浅出Vue.js",
       "JavaScript设计模式",
       "node.js权威指南",
@@ -388,7 +394,83 @@ onMounted(async () => {
   }, 8000);
   state.loading = false;
   closeToast();
+  // 执行说明引导
+  nextTick(() => {
+    initPageIntro()
+  });
 });
+
+// 引导说明配置
+const initPageIntro = () => {
+      // 引导图
+      const allSteps = [
+        {
+          element: '#step1', //这是添加引导的元素id
+          intro: '主要工作内容轮播概览', //这是引导提示内容
+          position: 'bottom' //这是引导位置
+        },
+        {
+          element: '#step2',
+          intro: '分割过渡，无特别作用',
+          position: 'top'
+        },
+        {
+          element: '#step3',
+          intro: '上一年各项成果汇报',
+          position: 'top'
+        },
+        {
+          element: '#step4',
+          intro: '今年工作计划内容',
+          position: 'bottom'
+        },
+        {
+          element: '#step5',
+          intro: '功能切换导航栏',
+          position: 'top'
+        },
+        {
+          element: '#step6',
+          intro: '已完成工作结算汇总',
+          position: 'top'
+        },
+        {
+          element: '#step7',
+          intro: '结算后展示具体收获内容',
+          position: 'top'
+        }
+      ]
+ 
+      const curIntro = intro()
+      curIntro.setOptions({
+        prevLabel: `上一步`,
+        nextLabel: `下一步`,
+        skipLabel: ``,
+        doneLabel: `完成`,
+        tooltipPosition: `bottom` /* 引导说明框相对高亮说明区域的位置 */,
+        hidePrev: `true`, // 隐藏第一步中的上一个按钮
+        tooltipClass: `` /* 引导说明文本框的样式 */,
+        highlightClass: `` /* 说明高亮区域的样式 */,
+        exitOnOverlayClick: false /* 是否允许点击空白处退出 */,
+        showStepNumbers: false /* 是否显示说明的数据步骤*/,
+        keyboardNavigation: false /* 是否允许键盘来操作 */,
+        showButtons: true /* 是否按键来操作 */,
+        showBullets: true /* 是否使用点点点显示进度 */,
+        showProgress: false /* 是否显示进度条 */,
+        scrollToElement: true /* 是否滑动到高亮的区域 */,
+        overlayOpacity: 0.6 /* 遮罩层的透明度 */,
+        positionPrecedence: [`bottom`, `top`, `right`, `left`] /* 当位置选择自动的时候，位置排列的优先级 */,
+        disableInteraction: false, /* 是否禁止与元素的相互关联 */
+        hintPosition: 'top-middle',
+        steps: allSteps
+      })
+      // 根据缓存判断是否第一次进入
+      const introLocal = getLocal('firstIntro')
+      if (!introLocal) {
+        curIntro.start()
+        setLocal('firstIntro', false)
+      }
+    }
 
 nextTick(() => {
   // 监听滚动条，动态设置头部组件背景样式
@@ -833,5 +915,12 @@ const tips = () => {
   100% {
     background-position: 0% 50%;
   }
+}
+</style>
+<style lang="scss">
+/* 重置引导组件样式(类似element-ui个人使用) */
+.introjs-tooltiptext {
+  color: #ffff;
+  font-size: 30px;
 }
 </style>
