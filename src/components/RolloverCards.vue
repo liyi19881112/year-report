@@ -1,9 +1,9 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-14 15:16:16
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-30 15:20:20
- * @FilePath: \year-report\src\components\RolloverCards.vue
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-02-23 10:08:53
+ * @FilePath: \year-report-github\src\components\RolloverCards.vue
  * @Description: 翻转卡片组件
 -->
 <template>
@@ -73,10 +73,8 @@
       </div>
       <div class="back">
         <div>
-          <p>Consectetur adipisicing elit. Possimus, praesentium?</p>
           <p>
-            Provident consectetur natus voluptatem quis tenetur sed beatae eius
-            sint.
+            在常人口分析页面开发
           </p>
           <button class="button">页面开发</button>
         </div>

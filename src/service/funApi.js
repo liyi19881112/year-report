@@ -1,8 +1,8 @@
 /*
  * @Author: 李一 375987927@qq.com
  * @Date: 2024-01-22 10:30:30
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-23 15:08:01
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-02-23 09:36:33
  * @FilePath: \year-report-github\src\service\funApi.js
  * @Description: 好玩的api集合
  */
@@ -18,7 +18,7 @@ export function getWeather() {
 // 获取微博热搜接口
 export function getHot() {
   axios.defaults.baseURL = import.meta.env.MODE == 'development' ? '/hot' : ''
-  return axios.get('/api.php?api=18&key=385f2dc0fbce565c164b1eb8482b9a66');
+  return axios.get('/zhihuhot');
 }
 
 

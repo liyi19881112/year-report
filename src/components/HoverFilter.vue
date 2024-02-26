@@ -1,8 +1,8 @@
 <!--
  * @Author: liyi19881112 71474753+liyi19881112@users.noreply.github.com
  * @Date: 2023-12-20 16:27:43
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-26 10:38:18
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-02-23 18:13:38
  * @FilePath: \year-report-github\src\components\HoverFilter.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -39,6 +39,7 @@
   display: flex;
   width: 100%;
   height: 100%;
+  align-items: center;
   flex-direction: column;
   gap: 15px;
 }

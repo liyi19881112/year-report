@@ -1,13 +1,16 @@
 <!--
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-20 14:19:05
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-23 16:23:54
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-02-23 18:08:57
  * @FilePath: \year-report-github\src\views\ItemDetail.vue
  * @Description: 详细内容展示
 -->
 
 <template>
+  <div class="fixed-box" :style="fixedBoxStyleObject" v-show="isShowMenu" ref="fixedBoxRef">
+    <span @click="removeFixed">全屏显示</span>
+  </div>
   <div class="product-detail">
     <s-header
       back="/home"
@@ -31,7 +34,7 @@
         </div>
         <long-press v-if="currentItemDetail.id === 3"></long-press>
         <div class="product-intro" v-if="currentItemDetail.id != 1 && currentItemDetail.id != 5">
-          <rotate-cards :itemId="itemId" v-if="currentItemDetail.id === 2"></rotate-cards>
+          <rotate-cards :itemId="itemId" v-if="currentItemDetail.id === 2" @click.right="showContextMenu($event)"></rotate-cards>
           <hover-filter v-if="currentItemDetail.id === 4"></hover-filter>
           <three-hover-cards v-if="currentItemDetail.id === 6"></three-hover-cards>
           <scroll-ball v-if="currentItemDetail.id === 3"></scroll-ball>
@@ -124,13 +127,19 @@ const router = useRouter();
 const cart = useCartStore();
 const dialogShow = ref(false);
 const inputValue = ref("");
+const fixedBoxStyleObject = ref({
+  left: '100px',
+  top: '100px'
+});
+const isShowMenu = ref(false)
+const fixedBoxRef = ref(null);
 // 滚动通知栏内容
 const noticeText = ref("");
 // const noticeText = ref(
 //   '2024年1月25日 天气：晴 西南风 距离过年还有15天\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0食堂人今天又是很多，鸡腿饭吃腻了，啥时候食堂能有旋转火锅呢\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0国民党大选没有获胜，两岸统一之路越发艰辛了\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0上证跌破2800点，刷新2020年4月以来新低'
 // );
 // 获取到过年时间差
-const diffDay = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\距离过年还有' + dayjs('2024-02-09').diff(dayjs(),'day') + '天\xa0\xa0\xa0\ '
+const diffDay = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\距离过年还有' + dayjs('2025-01-28').diff(dayjs(),'day') + '天\xa0\xa0\xa0\ '
 noticeText.value += diffDay;
 // 根据缓存来判断是否显示天气
 if(!getLocal("weather")) {
@@ -166,13 +175,12 @@ const getWeatherInfo = async () => {
 const getWeiboHot = async () => {
   const { data: hotInfo } = await getHot()
   let locHot = ''
+  console.log('微博热搜接口信息', hotInfo)
   // 对微博热搜数据进行处理
   if ( hotInfo ) {
-    const hotArray = hotInfo.data[0].hot
-    locHot = '当日微博热搜内容：' + hotArray.map((item, index) => `${index + 1}、${item.title}`).join(' ');
+    locHot = '当日微博热搜内容：' + hotInfo.data.map((item, index) => `${index + 1}、${item.name}`).join(' ');
   }
   setLocal('hot', locHot)
-  console.log('微博热搜接口信息', hotInfo)
 }
 // 增加加载loading
 const loadingInstance = ElLoading.service({
@@ -195,7 +203,7 @@ const anchors = [
 // 所有需要展示的今年项目明细
 const totalItemDetail = [
   { id: 1, name: "项目研发", percentage: '100' },
-  { id: 2, name: "漏洞修复", percentage: '100' },
+  { id: 2, name: "架构升级", percentage: '100' },
   { id: 3, name: "前端培训", percentage: '100' },
   { id: 4, name: "诗词创作", percentage: '100' },
   { id: 5, name: "兴趣阅读", percentage: '100' },
@@ -367,6 +375,24 @@ const removeFilter = () => {
     });
   }
 };
+
+// 监听鼠标右键点击事件
+const showContextMenu = (e) => {
+  e.preventDefault()
+  console.log('监听右键点击')
+  fixedBoxStyleObject.value.left = e.clientX + 'px'
+  fixedBoxStyleObject.value.top = e.clientY + 'px'
+  isShowMenu.value = true
+  setTimeout(() => {
+      fixedBoxRef.value.focus()
+  },1)
+}
+
+const removeFixed = () => {
+  isShowMenu.value = false
+  document.querySelector(".left").style.display = 'none';
+  document.querySelector(".product-intro").style.width = '100%';
+}
 </script>
 
 <style lang="less" scoped>
@@ -414,7 +440,8 @@ const removeFilter = () => {
     }
     .product-intro {
       display: flex;
-      width: 50%;
+      width: 100%;
+      animation: width 1s;
       // align-items: center;
       ul {
         .fj();
@@ -465,5 +492,20 @@ const removeFilter = () => {
 }
 .warnToast {
   width: 150px;
+}
+.fixed-box{
+  position: fixed;
+  color: black;
+  padding: 8px;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  padding: 12px 4px;
+  border-radius: 6px;
+  border: 1px solid  rgba(222, 222, 222, 0.5);
+  background-color:  #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 999;
 }
 </style>

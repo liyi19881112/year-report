@@ -1,9 +1,9 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-30 09:22:30
- * @FilePath: \year-report\src\views\Home.vue
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-02-23 15:25:59
+ * @FilePath: \year-report-github\src\views\Home.vue
  * @Description: 首页
 -->
 
@@ -162,9 +162,9 @@ const todoList1 = ref([
   {
     name: "完善技术栈",
     value: [
-      "夯实js基础",
       "前端设计模式",
       "Web Components",
+      "Web组件构件库 lit",
       "Promise原理",
       "web3D可视化技术",
     ],
@@ -320,7 +320,7 @@ onMounted(async () => {
     },
     {
       goodsCoverImg: new URL("@/assets/done2.svg", import.meta.url),
-      goodsName: "漏洞修复",
+      goodsName: "架构升级",
       percentage: "100",
       id: 2,
     },
