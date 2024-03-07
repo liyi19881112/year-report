@@ -1,15 +1,15 @@
 <!--
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-25 15:43:06
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2023-12-27 17:55:06
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-03-07 08:56:40
  * @FilePath: \year-report-github\src\components\BookReview.vue
  * @Description: 书评总结组件
 -->
 
 <template>
   <div class="tooltip-container">
-    <img class="flipbook" :src="img1" />
+    <img @click="goToDetail" class="flipbook" :src="img1" />
     <div class="tooltip">
       <div class="text">{{ text }}</div>
       <div class="leaf leaf1"></div>
@@ -26,6 +26,12 @@ import img1 from "./images/tree.png";
 
 const text = ref(`观书散遗帙，
 探古穷至妙。`);
+
+const goToDetail = () => {
+  // 跳转新窗口
+  window.open('https://note.youdao.com/s/SyBPYDXS')
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -49,7 +55,7 @@ const text = ref(`观书散遗帙，
 .flipbook {
   width: 100%;
   height: 100%;
-
+  cursor: pointer;
   border-radius: 8px;
   padding: 0;
 }

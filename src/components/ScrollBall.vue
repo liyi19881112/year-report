@@ -1,17 +1,25 @@
+<!--
+ * @Author: 李一
+ * @Date: 2023-12-22 14:44:47
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-02-28 09:56:06
+ * @FilePath: \year-report-github\src\components\ScrollBall.vue
+ * @Description: 文件描述
+-->
 <template>
  <div class="card-2">
-        <span id="card-2-h1">Welcome</span>
+        <span id="card-2-h1">培训知识点</span>
         <div class="h1-circle">
              <ul id="h1-circle-ul-1">
-            <li>Easer</li>
-            <li>Cheaper</li>
-            <li>World Wild</li>
-             </ul>
+            <li>1、ES6新特性</li>
+            <li>2、TypeScript类型约束</li>
+            <li>3、Vue3基础知识</li>
+            </ul>
              <ul id="h1-circle-ul-2">
-            <li>Secrets</li>
-            <li>Expensive</li>
-            <li>World Wild</li>
-             </ul>
+              <li>3、ref()、reactive()、生命周期变化、setup()使用</li>
+              <li>2、数据类型、函数、类、接口、泛型、type类型</li>
+              <li>1、变量解构赋值、字符串和数组对象扩展、Promise对象、Module的语法</li>
+            </ul>
         </div>
     </div>
 </template>
@@ -106,15 +114,15 @@
   flex: 1;
   flex-direction: column;
   position: absolute;
-  top: 100px;
+  top: 30px;
   left: 200px;
   transition: 1s ease-in;
 }
 
 #h1-circle-ul-2 li {
   transform: rotate(180deg);
-  font-size: 20px;
-  margin: 30px;
+  font-size: 15px;
+  margin: 20px;
 }
 
 #card-2-h1 {

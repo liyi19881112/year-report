@@ -1,8 +1,8 @@
 <!--
  * @Author: 李一 375987927@qq.com
  * @Date: 2024-01-19 09:24:44
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-23 16:44:00
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-03-06 17:20:33
  * @FilePath: \year-report-github\src\components\LongPress.vue
  * @Description: 长按弹出组件
 -->
@@ -22,18 +22,72 @@
     <nut-popup
       position="right"
       z-index="99000"
-      :style="{ width: '40%', height: '100%' }"
+      :style="{ width: '750px', height: '100%', padding: '15px' }"
       v-model:visible="showRight"
     >
-    <img :src="img1"/>
-    <h1>测试内容及图片</h1>
+    <p style="width: 100%;text-align: center;font-size: 40px;">培训大礼包</p>
+    <h1>1、培训流程</h1>
+    <img style="width: 100%;height: 600px;" :src="px1"/>
+    <h1>2、培训提升</h1>
+    <img style="width: 100%;height: 600px;" :src="px2"/>
+    <h1>3、培训成果物</h1>
+    <el-descriptions
+    class="margin-top"
+    :column="2"
+    size="default"
+    border
+  >
+    <el-descriptions-item>
+      <template #label>
+        <div class="cell-item">
+          前期准备
+        </div>
+      </template>
+      <el-tag size="small"><a href="https://neusoft.feishu.cn/docx/QowidyPnWogx3gxoPE8cqAMyn3e">开发准备工作</a></el-tag>
+    </el-descriptions-item>
+    <el-descriptions-item>
+      <template #label>
+        <div class="cell-item">
+          技术培训
+        </div>
+      </template>
+      <el-tag size="small"><a href="https://neusoft.feishu.cn/mindnotes/FLjPbtdOPm57bYngprKctD8nnmd">前端知识图谱</a></el-tag><br>
+      <el-tag type="success" size="small"><a href="https://neusoft.feishu.cn/file/OexsbR3ZHo8VJOxgJOFcA300nHf">前端培训PPT</a></el-tag>
+    </el-descriptions-item>
+    <el-descriptions-item>
+      <template #label>
+        <div class="cell-item">
+          自学提升
+        </div>
+      </template>
+      <el-tag size="small"><a href="https://neusoft.feishu.cn/sheets/Up4ssR2EBhhnJptAg8ycgA1Tnfb">前端自学计划表</a></el-tag><br>
+      <el-tag type="warning" size="small"><a href="https://neusoft.feishu.cn/docx/X7NwdQZamosCAnxZyDZciOZDnjx">前端基础自学资料</a></el-tag><br>
+      <el-tag type="danger" size="small"><a href="https://neusoft.feishu.cn/docx/doxcnKppPi12fbHvEn5NZOFBRth">vue3基础知识文档</a></el-tag>
+    </el-descriptions-item>
+    <el-descriptions-item>
+      <template #label>
+        <div class="cell-item">
+          demo练习
+        </div>
+      </template>
+      <el-tag size="small"><a href="https://neusoft.feishu.cn/docx/HXCxdRlr7o7IqNxvt3DcMbCdnlc">代码规范文档</a></el-tag>
+    </el-descriptions-item>
+    <el-descriptions-item>
+      <template #label>
+        <div class="cell-item">
+          考核沟通
+        </div>
+      </template>
+      <el-tag size="small"><a href="https://neusoft.feishu.cn/base/D7kabBfOiaoEAbsJWzWcfqE4nzd?table=tbljeeIpq88ROaOv&view=vewQYjNser">培训考核表</a></el-tag>
+    </el-descriptions-item>
+  </el-descriptions>
   </nut-popup>
     <nutbig-marquee
       v-show="counter >= 100"
       :prize-list="prizeList"
       :prize-index="prizeIndex"
       :speed="200"
-      :circle="30"
+      :circle="20"
       @start-turns="startTurns"
       @end-turns="endTurns"
     >
@@ -43,7 +97,8 @@
 
 <script setup>
 import { ref, reactive, watch } from "vue";
-import img1 from "./images/云边有个小卖部.jpg"
+import px1 from "./images/培训1.png"
+import px2 from "./images/培训2.png"
 import { onLongPress, useInterval, useMousePressed } from "@vueuse/core";
 const longPress = ref(null);
 // 对应长按触发的变量
@@ -54,7 +109,7 @@ const showRight = ref(false);
 const onLongPressCallback = (e) => {
   longPressed.value = true;
 };
-// 调用vueuse的onLongPress方法，长按3秒触发
+// 调用vueuse的onLongPress方法，长按2秒触发
 onLongPress(longPress, onLongPressCallback, { delay: 3000 });
 
 // 监听按钮鼠标按下事件
@@ -131,7 +186,7 @@ const endTurns = () => {
   }, 1000);
 };
 // 调用VueUse定时方法
-const { counter, reset, pause, resume } = useInterval(50, {
+const { counter, reset, pause, resume } = useInterval(20, {
   controls: true,
   immediate: false,
 });

@@ -2,14 +2,14 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-21 15:47:44
  * @LastEditors: 李一
- * @LastEditTime: 2024-02-23 18:12:18
+ * @LastEditTime: 2024-03-06 15:20:33
  * @FilePath: \year-report-github\src\components\ThreeHoverCards.vue
  * @Description: 右上角多层hover卡片展示组件
 -->
 <template>
   <div class="card">
     <div class="logo">
-      <svg class="svg" viewBox="0 0 94 94" xmlns="http://www.w3.org/2000/svg">
+      <!-- <svg class="svg" viewBox="0 0 94 94" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M38.0481 4.82927C38.0481 2.16214 40.018 0 42.4481 0H51.2391C53.6692 0 55.6391 2.16214 55.6391 4.82927V40.1401C55.6391 48.8912 53.2343 55.6657 48.4248 60.4636C43.6153 65.2277 36.7304 67.6098 27.7701 67.6098C18.8099 67.6098 11.925 65.2953 7.11548 60.6663C2.37183 56.0036 3.8147e-06 49.2967 3.8147e-06 40.5456V4.82927C3.8147e-06 2.16213 1.96995 0 4.4 0H13.2405C15.6705 0 17.6405 2.16214 17.6405 4.82927V39.1265C17.6405 43.7892 18.4805 47.2018 20.1605 49.3642C21.8735 51.5267 24.4759 52.6079 27.9678 52.6079C31.4596 52.6079 34.0127 51.5436 35.6268 49.4149C37.241 47.2863 38.0481 43.8399 38.0481 39.0758V4.82927Z"
         ></path>
@@ -19,77 +19,11 @@
         <path
           d="M2.86102e-06 83.2195C2.86102e-06 80.5524 1.96995 78.3902 4.4 78.3902H83.6C86.0301 78.3902 88 80.5524 88 83.2195V89.1707C88 91.8379 86.0301 94 83.6 94H4.4C1.96995 94 0 91.8379 0 89.1707L2.86102e-06 83.2195Z"
         ></path>
-      </svg>
+      </svg> -->
     </div>
-    <div class="title">Main Title</div>
-    <div class="icons-container">
-      <svg
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-width="2"
-        fill="none"
-        viewBox="0 0 24 24"
-        height="24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-        class="svg"
-      >
-        <rect ry="5" rx="5" y="2" x="2" height="20" width="20"></rect>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-        <line y2="6.5" y1="6.5" x2="17.51" x1="17.5"></line>
-      </svg>
-      <svg
-        viewBox="0 0 512 512"
-        width="24"
-        height="24"
-        xmlns="http://www.w3.org/2000/svg"
-        class="svg twitter"
-      >
-        <path
-          d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
-        ></path>
-      </svg>
-      <svg
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-width="2"
-        fill="none"
-        viewBox="0 0 24 24"
-        height="24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-        class="svg"
-      >
-        <path
-          d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
-        ></path>
-        <path d="M9 18c-4.51 2-5-2-7-2"></path>
-      </svg>
-    </div>
+    <div class="title">个人成长</div>
     <div class="box box3">
-      <div class="box3-litter-title">
-        <svg
-          t="1703148585689"
-          class="icon"
-          viewBox="0 0 1024 1024"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          p-id="880"
-          width="20"
-          height="20"
-        >
-          <path
-            d="M736 160A96 96 0 0 1 832 256v640a96 96 0 0 1-96 96h-576A96 96 0 0 1 64 896V256a96 96 0 0 1 96-96h576zM224 256h-64v640h576V256h-64v96a64 64 0 0 1-64 64h-320a64 64 0 0 1-64-64V256zM512 672V768H256v-96h256zM640 512v96H256V512h384zM576 256H320v64h256V256z"
-            fill="#51535F"
-            p-id="881"
-          ></path>
-          <path
-            d="M896 0a96 96 0 0 1 96 96v640A96 96 0 0 1 896 832V224a128 128 0 0 0-128-128H224A96 96 0 0 1 320 0h576z"
-            fill="#51535F"
-            p-id="882"
-          ></path>
-        </svg>
-      </div>
+      <div class="box3-litter-title">box3小标题</div>
       <div class="content">
         <span class="box-title">Title 1</span>
         <span class="box-text"

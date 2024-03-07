@@ -2,14 +2,15 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-20 14:19:05
  * @LastEditors: 李一
- * @LastEditTime: 2024-02-23 18:08:57
+ * @LastEditTime: 2024-03-07 09:31:49
  * @FilePath: \year-report-github\src\views\ItemDetail.vue
  * @Description: 详细内容展示
 -->
 
 <template>
   <div class="fixed-box" :style="fixedBoxStyleObject" v-show="isShowMenu" ref="fixedBoxRef">
-    <span @click="removeFixed">全屏显示</span>
+    <span v-show="rightButton" @click="removeFixed">全屏显示</span>
+    <span v-show="!rightButton" @click="goToDetail">查看详情</span>
   </div>
   <div class="product-detail">
     <s-header
@@ -21,16 +22,16 @@
         <van-notice-bar
           left-icon="volume-o"
           :scrollable="true"
-          speed="140"
+          speed="100"
           :text="noticeText"
         />
       </div>
       <div class="product-info">
-        <div class="left" v-if="currentItemDetail.id != 4">
+        <div class="left" v-if="currentItemDetail.id != 4 && currentItemDetail.id != 6">
           <rollover-cards v-if="currentItemDetail.id === 1"></rollover-cards>
           <show-books v-else-if="currentItemDetail.id === 5"></show-books>
           <up-down-rotate v-else-if="currentItemDetail.id === 3"></up-down-rotate>
-          <red-books :itemId="itemId" v-else></red-books>
+          <red-books :itemId="itemId" v-else-if="currentItemDetail.id === 2"></red-books>
         </div>
         <long-press v-if="currentItemDetail.id === 3"></long-press>
         <div class="product-intro" v-if="currentItemDetail.id != 1 && currentItemDetail.id != 5">
@@ -126,6 +127,7 @@ const route = useRoute();
 const router = useRouter();
 const cart = useCartStore();
 const dialogShow = ref(false);
+const rightButton = ref(true)
 const inputValue = ref("");
 const fixedBoxStyleObject = ref({
   left: '100px',
@@ -173,12 +175,24 @@ const getWeatherInfo = async () => {
 }
 // 获取微博热搜榜
 const getWeiboHot = async () => {
-  const { data: hotInfo } = await getHot()
+  // const { data: hotInfo } = await getHot() 热搜接口已失效
+  const hotInfo = [
+    { name: "习近平看望政协委员" },
+    { name: "建议国家全面禁止未成年人网游" },
+    { name: "回南天取快递 像到了天庭" },
+    { name: "杨幂考北电是孤注一掷" },
+    { name: "女子被鸡啄伤送进ICU抢救2个月" },
+    { name: "欧冠八强确定四席" },
+    { name: "欧冠八强确定四席" },
+    { name: "欧冠八强确定四席" },
+    { name: "欧冠八强确定四席" },
+    { name: "欧冠八强确定四席" }
+  ]
   let locHot = ''
   console.log('微博热搜接口信息', hotInfo)
   // 对微博热搜数据进行处理
   if ( hotInfo ) {
-    locHot = '当日微博热搜内容：' + hotInfo.data.map((item, index) => `${index + 1}、${item.name}`).join(' ');
+    locHot = '当日微博热搜内容：' + hotInfo.map((item, index) => `${index + 1}、${item.name}`).join(' ');
   }
   setLocal('hot', locHot)
 }
@@ -207,7 +221,7 @@ const totalItemDetail = [
   { id: 3, name: "前端培训", percentage: '100' },
   { id: 4, name: "诗词创作", percentage: '100' },
   { id: 5, name: "兴趣阅读", percentage: '100' },
-  { id: 6, name: "自我成长", percentage: '20' },
+  { id: 6, name: "个人成长", percentage: '60' },
 ];
 // 当前需要展示的项目明细
 const currentItemDetail = ref({});
@@ -379,7 +393,6 @@ const removeFilter = () => {
 // 监听鼠标右键点击事件
 const showContextMenu = (e) => {
   e.preventDefault()
-  console.log('监听右键点击')
   fixedBoxStyleObject.value.left = e.clientX + 'px'
   fixedBoxStyleObject.value.top = e.clientY + 'px'
   isShowMenu.value = true
@@ -391,7 +404,13 @@ const showContextMenu = (e) => {
 const removeFixed = () => {
   isShowMenu.value = false
   document.querySelector(".left").style.display = 'none';
-  document.querySelector(".product-intro").style.width = '100%';
+  rightButton.value = false
+}
+
+const goToDetail = () => {
+  isShowMenu.value = false
+  // 跳转新窗口
+  window.open('https://naotu.baidu.com/file/788fc8af452a73b1465b33464ba274bf?token=db598ebde126d2c3')
 }
 </script>
 
@@ -441,7 +460,8 @@ const removeFixed = () => {
     .product-intro {
       display: flex;
       width: 100%;
-      animation: width 1s;
+      justify-content: center;
+      // transition: width 1s;
       // align-items: center;
       ul {
         .fj();

@@ -1,19 +1,34 @@
+<!--
+ * @Author: 李一
+ * @Date: 2023-12-22 15:27:15
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-03-01 15:03:57
+ * @FilePath: \year-report-github\src\components\UpDownRotate.vue
+ * @Description: 文件描述
+-->
 <template>
   <div class="card">
     <div class="upper-part">
-      <div class="upper-part-face">Hover Me</div>
+      <div class="upper-part-face">培训数字说</div>
       <div class="upper-part-back">
-        Some Additional Information At The Back Side
+        <van-highlight
+          :keywords="keywords"
+          :source-string="text"
+          highlight-class="custom-class"
+        />
       </div>
     </div>
     <div class="lower-part">
-      <div class="lower-part-face">Face Side</div>
-      <div class="lower-part-back">Back Side</div>
+      <div class="lower-part-face">用数据说话--</div>
+      <div class="lower-part-back">是对决策的基本尊重！</div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const text = "参与培训人员13名；培训总历经270天；产出成果物8篇；举行培训会议次数15次；新培养具备vue3业务开发能力人员4名";
+const keywords = ['13', '270', '8', '15', '4'];
+</script>
 
 <style lang="scss" scoped>
 .card {
@@ -26,6 +41,11 @@
   perspective: 600px;
   overflow: hidden;
   perspective-origin: center bottom;
+  font-size: 13px;
+  :deep(.custom-class) {
+    color: rgb(255, 115, 0);
+    font-size: 25px;
+  }
 }
 
 .upper-part {

@@ -2,7 +2,7 @@
  * @Author: 李一
  * @Date: 2023-12-20 14:19:04
  * @LastEditors: 李一
- * @LastEditTime: 2024-02-23 18:04:43
+ * @LastEditTime: 2024-02-26 16:15:18
  * @FilePath: \year-report-github\src\components\RotateCards.vue
  * @Description: 关系图
 -->
@@ -52,7 +52,7 @@ const initEchart = () => {
                 edgeLength: 120,
                 layoutAnimation: true,
             },
-            symbolSize: 70,
+            symbolSize: 100,
             nodeScaleRatio: 1, //图标大小是否随鼠标滚动而变
             roam: true, //缩放
             draggable: true, //节点是否可以拖拽
@@ -115,9 +115,6 @@ const initEchart = () => {
             data: [
                 {
                     name: '提高交付效率',
-                    tooltip: {
-                        formatter: '{b} <br/>性别：男<br/>职务：富阳区灵桥镇灵桥村务农',
-                    },
                     itemStyle: {
                         normal: {
                             color: '#ff9900',
@@ -127,10 +124,7 @@ const initEchart = () => {
                     },
                 },
                 {
-                      tooltip: {
-                        formatter: '{b} <br/>性别：男<br/>出生年月：19951114<br/>星座：处女座',
-                    },
-                    name: '王桂花',
+                    name: '修复热更新报错',
                     itemStyle: {
                         normal: {
                             color: '#79A437',
@@ -141,9 +135,9 @@ const initEchart = () => {
                 },
                 {
                       tooltip: {
-                        formatter: '{b} <br/>性别：男<br/>出生年月：19951114<br/>星座：处女座',
+                        formatter: '{b} <br/>1、图表右键可查看对应sql和接口调用结果<br/>2、以浏览器插件形式提供<br/>3、方便开发与实施数据库联调',
                     },
-                    name: '李思思',
+                    name: '查看图表接口插件',
                     itemStyle: {
                         normal: {
                             color: '#79A437',
@@ -153,7 +147,7 @@ const initEchart = () => {
                     },
                 },
                 {
-                    name: '自住房屋',
+                    name: '收集整理高频组件',
                     itemStyle: {
                         normal: {
                             color: '#79A437',
@@ -163,7 +157,10 @@ const initEchart = () => {
                     },
                 },
                 {
-                    name: '车子',
+                    name: '同构组件',
+                    tooltip: {
+                        formatter: '{b} <br/>1、通过WebComponent方式实现<br/>2、以安装依赖形式提供<br/>3、搭建大数据组件可视化平台',
+                    },
                     itemStyle: {
                         normal: {
                             color: '#79A437',
@@ -183,68 +180,63 @@ const initEchart = () => {
                     },
                 },
                 {
-                    name: '黄涛',
+                    name: '页面进入组件过渡',
                 },
                 {
-                    name: '于海',
+                    name: 'tab切换过渡',
                 },
                 {
-                    name: '张柏',
+                    name: '优化完善3D地图',
                 },
                 {
-                    name: '付梦杰',
+                    name: '优化加载，减少白屏时间',
                 },
             ],
             links: [
                 {
                     source: 0,
                     target: 1,
-                    value: '夫妻',
+                    value: '开发体验',
                 },
                 {
                     source: 0,
                     target: 2,
-                    value: '父亲',
-                },
-                {
-                    source: 2,
-                    target: 0,
-                    value: '女儿',
+                    value: '开发体验',
                 },
                 {
                     source: 0,
                     target: 3,
-                    value: '自住',
+                    value: '组件复用',
                 },
                 {
                     source: 0,
                     target: 4,
-                    value: '车主',
+                    value: '组件复用',
                 },
                 {
-                    source: 0,
-                    target: 5,
-                    value: '租户',
+                    source: 5,
+                    target: 0,
+                    value: '交付',
                 },
                 {
                     source: 5,
                     target: 6,
-                    value: '租赁',
+                    value: '过渡动画',
                 },
                 {
                     source: 5,
                     target: 7,
-                    value: '租赁',
+                    value: '过渡动画',
                 },
                 {
                     source: 5,
                     target: 8,
-                    value: '租赁',
+                    value: '3D交互',
                 },
                 {
                     source: 5,
                     target: 9,
-                    value: '租赁',
+                    value: '性能提升',
                 },
             ],
         },

@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一
- * @LastEditTime: 2024-02-23 15:25:59
+ * @LastEditTime: 2024-03-06 14:51:00
  * @FilePath: \year-report-github\src\views\Home.vue
  * @Description: 首页
 -->
@@ -344,8 +344,8 @@ onMounted(async () => {
     },
     {
       goodsCoverImg: new URL("@/assets/done6.svg", import.meta.url),
-      goodsName: "自我成长",
-      percentage: "20",
+      goodsName: "个人成长",
+      percentage: "60",
       id: 6,
     },
   ];

@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-14 15:16:16
  * @LastEditors: 李一
- * @LastEditTime: 2024-02-23 10:08:53
+ * @LastEditTime: 2024-02-29 09:41:56
  * @FilePath: \year-report-github\src\components\RolloverCards.vue
  * @Description: 翻转卡片组件
 -->
@@ -10,8 +10,8 @@
   <div class="content">
     <h1 class="heading">2023年主要参与项目汇总</h1>
     <p class="description">悬浮翻转以查看工作内容详情</p>
-    <a class="card" >
-      <div class="front" :style="`background-image: url(${test})`">
+    <a class="card">
+      <div class="front" :style="`background-image: url(${hn1})`">
         <p>海南大数据</p>
       </div>
       <div class="back">
@@ -23,10 +23,10 @@
           <button class="button">页面开发</button>
         </div>
       </div></a
-    ><a class="card" >
+    ><a class="card">
       <div
         class="front"
-        style="background-image: url(//source.unsplash.com/300x402)"
+        :style="`background-image: url(${yz1})`"
       >
         <p>扬州大数据</p>
       </div>
@@ -38,12 +38,12 @@
           <button class="button">页面开发</button>
         </div>
       </div></a
-    ><a class="card" >
+    ><a class="card">
       <div
         class="front"
-        style="background-image: url(//source.unsplash.com/300x403)"
+        :style="`background-image: url(${tl1})`"
       >
-        <p>河源大屏</p>
+        <p>铁岭大屏</p>
       </div>
       <div class="back">
         <div>
@@ -51,10 +51,10 @@
           <button class="button">技术支持</button>
         </div>
       </div></a
-    ><a class="card" >
+    ><a class="card">
       <div
         class="front"
-        style="background-image: url(//source.unsplash.com/300x404)"
+        :style="`background-image: url(${gx1})`"
       >
         <p>广西大屏</p>
       </div>
@@ -64,34 +64,41 @@
           <button class="button">技术支持</button>
         </div>
       </div></a
-    ><a class="card" >
+    ><a class="card">
       <div
         class="front"
-        style="background-image: url(//source.unsplash.com/300x405)"
+        :style="`background-image: url(${cz})`"
       >
-        <p>常州个人档案库</p>
+        <p style="color: lightslategrey;">常州个人档案库</p>
       </div>
       <div class="back">
         <div>
-          <p>
-            在常人口分析页面开发
-          </p>
+          <p>在常人口分析页面开发</p>
           <button class="button">页面开发</button>
-        </div>
-      </div></a
-    ><a class="card" >
+        </div></div></a
+    ><a class="card">
       <div
         class="front"
-        style="background-image: url(//source.unsplash.com/300x406)"
+        :style="`background-image: url(${gr})`"
       >
-        <p>数字档案库</p>
+        <p style="color: lightslategrey;">数字档案库</p>
       </div>
       <div class="back">
         <div>
           <p>个人标签搜索页面开发</p>
           <p>群体洞察页面开发</p>
           <p>企业全息画像-基础档案页面开发</p>
-          <button class="button">页面开发</button>
+          <el-popover placement="top" :width="500" trigger="click">
+            <template #reference>
+              <el-button class="button" style="margin-right: 16px"
+                >页面开发</el-button
+              >
+            </template>
+            <el-table :data="daData">
+              <el-table-column width="90" property="xh" label="序号" />
+              <el-table-column width="410" property="name" label="知识点" />
+            </el-table>
+          </el-popover>
         </div>
       </div></a
     >
@@ -99,7 +106,31 @@
 </template>
 
 <script setup>
-import test from "./images/test.jpg";
+import hn1 from "./images/hn1.png";
+import yz1 from "./images/yz1.png";
+import tl1 from "./images/tl1.png";
+import gx1 from "./images/gx1.png";
+import cz from "./images/在常人口分析.png";
+import gr from "./images/个人档案.png";
+
+const daData = [
+  {
+    xh: '1',
+    name: '公司gua框架及组件使用'
+  },
+  {
+    xh: '2',
+    name: 'vue3+TypeScript项目实战应用'
+  },
+  {
+    xh: '3',
+    name: '非大屏项目开发流程与还原度'
+  },
+  {
+    xh: '4',
+    name: '静态资源加载优化'
+  },
+]
 </script>
 
 <style lang="scss" scoped>
@@ -200,7 +231,8 @@ $orange: hsl(50, 80%, 50%);
 }
 
 .front {
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   // background-blend-mode: overlay;
   padding: 0.5rem;
   font-size: 1rem;
@@ -216,7 +248,7 @@ $orange: hsl(50, 80%, 50%);
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, adjust-hue($primary, -20deg), $primary);
+    // background: linear-gradient(135deg, adjust-hue($primary, -20deg), $primary);
     opacity: 0.25;
     z-index: -1;
   }
@@ -284,6 +316,7 @@ $orange: hsl(50, 80%, 50%);
   position: relative;
   transform-style: preserve-3d;
   transition: 300ms ease;
+  cursor: pointer;
 
   &:before {
     transition: 300ms ease;
@@ -309,10 +342,10 @@ $orange: hsl(50, 80%, 50%);
   }
 
   &:active {
-    transform: translateZ($height/2);
+    transform: translateZ(calc($height / 2));
 
     &:before {
-      transform: translateZ(-($height/2));
+      transform: translateZ(-(calc($height / 2)));
       top: 12px;
     }
   }

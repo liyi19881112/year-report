@@ -1,9 +1,9 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-18 13:58:31
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-23 14:28:52
- * @FilePath: \year-report\src\components\ShowBooks.vue
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-03-07 08:51:36
+ * @FilePath: \year-report-github\src\components\ShowBooks.vue
  * @Description: 书架展示组件
 -->
 <template>
@@ -117,7 +117,7 @@
     magnetic="x"
     v-model:offset="offset"
     @click="bookReviewShow = !bookReviewShow"
-    >显隐总评</van-floating-bubble
+    >显隐书评</van-floating-bubble
   >
   <!-- <button @click="bookReviewShow = !bookReviewShow">点击显隐书评</button> -->
 </template>

@@ -1,17 +1,17 @@
 /*
- * @Author: 李一 yi_li_neu@neusoft.com
- * @Date: 2023-11-27 09:02:31
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-26 14:06:48
- * @FilePath: \year-report\src\main.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Author: 李一
+ * @Date: 2023-12-20 14:19:03
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-02-29 09:55:20
+ * @FilePath: \year-report-github\src\main.js
+ * @Description: 年度汇报
  */
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import { ActionBar, ActionBarIcon, ActionBarButton, Divider, Popup, Overlay, Loading, Dialog, ContactCard, Form, AddressEdit, AddressList, Field, CellGroup, Cell, SwipeCell, Icon, Stepper, Card, Checkbox, CheckboxGroup, Button, Swipe, SwipeItem, PullRefresh, List, Tab, Tabs, SubmitBar, Toast, Skeleton } from 'vant'
+import { ActionBar, ActionBarIcon, ActionBarButton, Divider, Popup, Overlay, Loading, Dialog, ContactCard, Form, AddressEdit, AddressList, Field, CellGroup, Cell, SwipeCell, Icon, Stepper, Card, Checkbox, CheckboxGroup, Button, Swipe, SwipeItem, PullRefresh, List, Tab, Tabs, SubmitBar, Toast, Skeleton, Highlight } from 'vant'
 
 import App from './App.vue'
 import router from './router'
@@ -84,6 +84,7 @@ app.use(ActionBarButton)
   .use(Checkbox)
   .use(CheckboxGroup)
   .use(Skeleton)
+  .use(Highlight)
   .use(Marquee)
   .use(IconFont)
   .use(NutUI)

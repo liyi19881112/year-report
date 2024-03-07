@@ -1,9 +1,9 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-15 09:42:16
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-30 10:57:44
- * @FilePath: \year-report\src\components\RedBooks.vue
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-03-04 09:49:05
+ * @FilePath: \year-report-github\src\components\RedBooks.vue
  * @Description: 小红书同款互动卡片
 -->
 <template>
@@ -15,18 +15,24 @@
           <div class="points center">{{ currentItemDetail.text2 }}</div>
         </div>
         <div class="more-info">
-          <h1>{{ currentItemDetail.text6 }}</h1>
+          <h1>{{ currentItemDetail.text3 }}</h1>
+          <div class="coords">
+            <span>{{ currentItemDetail.text6 }}</span>
+          </div>
           <div class="coords">
             <span>{{ currentItemDetail.text7 }}</span>
           </div>
           <div class="coords">
             <span>{{ currentItemDetail.text8 }}</span>
           </div>
+          <div class="coords">
+            <span>{{ currentItemDetail.text9 }}</span>
+          </div>
         </div>
       </div>
       <div class="general">
         <h1>{{ currentItemDetail.text3 }}</h1>
-        <p>
+        <p style="font-size: 15px;">
           {{ currentItemDetail.text4 }}
         </p>
         <span class="more">{{ currentItemDetail.text5 }}</span>
@@ -36,29 +42,34 @@
     <div class="card green">
       <div class="additional">
         <div class="user-card">
-          <div class="level center">{{ currentItemDetail.text9 }}</div>
-          <div class="points center">{{ currentItemDetail.text10 }}</div>
+          <div class="level center">{{ currentItemDetail.text10 }}</div>
+          <div class="points center">{{ currentItemDetail.text11 }}</div>
         </div>
         <div class="more-info">
-          <h1>Jane Doe</h1>
+          <h1>{{ currentItemDetail.text12 }}</h1>
           <div class="coords">
-            <span>Group Name</span>
-            <span>Joined January 2019</span>
+            <span>{{ currentItemDetail.text15 }}</span>
           </div>
           <div class="coords">
-            <span>Position/Role</span>
-            <span>City, Country</span>
+            <span>{{ currentItemDetail.text16 }}</span>
+          </div>
+          <div class="coords">
+            <span>{{ currentItemDetail.text17 }}</span>
+          </div>
+          <div class="coords">
+            <span>{{ currentItemDetail.text18 }}</span>
+          </div>
+          <div class="coords">
+            <span>{{ currentItemDetail.text19 }}</span>
           </div>
         </div>
       </div>
       <div class="general">
-        <h1>Jane Doe</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-          volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut
-          pulvinar.
+        <h1>{{ currentItemDetail.text12 }}</h1>
+        <p style="font-size: 15px;">
+          {{ currentItemDetail.text13 }}
         </p>
-        <span class="more">Mouse over the card for more info</span>
+        <span class="more">{{ currentItemDetail.text14 }}</span>
       </div>
     </div>
   </div>
@@ -74,31 +85,27 @@ const props = defineProps({
 // 不同项目信息
 const itemCards = [
   {
-    text1: '漏洞修复',
-    text2: '左侧副标题一',
-    text3: '右侧标题上',
-    text4: '右侧默认显示内容上',
-    text5: "右侧默认显示内容落款",
-    text6: "右侧标题下",
-    text7: "1、右侧内容下我是乱七八糟写的，不要当真1",
-    text8: "2、右侧内容下我是乱七八糟写的，不要当真2",
-    text9: "测试数据1",
-    text10: "测试数据2",
+    text1: '开发需求导向',
+    text2: '提升开发效率',
+    text3: '开发需求导向',
+    text4: '根据团队在开发过程中遇到的问题，进行针对性架构升级，进一步提升开发效率',
+    text5: "",
+    text6: "1、Config模块化，解决多人编辑同一文件git冲突问题",
+    text7: "2、调整Eslint的IDE插件配置",
+    text8: "3、布局缩放自适应",
+    text9: "",
+    text10: "项目需求导向",
+    text11: "增加用户体验",
+    text12: "项目需求导向",
+    text13: "根据实际项目现场需求，增加可复用功能，统一集成到大屏架构种子工程当中",
+    text14: "",
+    text15: "1、增加主题切换机制",
+    text16: "2、集成键盘控制能力",
+    text17: "3、开启portal集成支持",
+    text18: "4、后端增加国产多数据源支持",
+    text19: "5、增加指标说明开关功能",
     id: "2",
-  },
-  {
-    text1: '个人成长',
-    text2: '副标题',
-    text3: '右侧标题',
-    text4: '',
-    text5: "测试数据1",
-    text6: "测试数据2",
-    text7: "测试数据3",
-    text8: "测试数据4",
-    text9: "测试数据5",
-    text10: "测试数据6",
-    id: "6",
-  },
+  }
 ];
 
 // 当前需要展示的项目明细
@@ -222,7 +229,7 @@ watch(
 .card .additional .coords {
   margin: 0 1rem;
   color: #fff;
-  font-size: 0.5rem;
+  font-size: 0.4rem;
 }
 
 .card.green .additional .coords {
@@ -249,6 +256,6 @@ watch(
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 </style>
