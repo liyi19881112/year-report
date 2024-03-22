@@ -1,9 +1,9 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-05 14:23:15
- * @LastEditors: 李一 yi_li_neu@neusoft.com
- * @LastEditTime: 2023-12-05 15:20:23
- * @FilePath: \newbee-mall-vue3-app\src\components\bar-chart.vue
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-03-11 14:41:49
+ * @FilePath: \year-report-github\src\components\half-pie-chart.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 
@@ -38,23 +38,23 @@ const initEchart = () => {
   }
   let color = ['#FF8700', '#ffc300', '#00e473', '#009DFF']
   let chartData = [{
-        name: "本科及以上",
-        value: 13211,
-        unit: '元'
+        name: "vue3",
+        value: 4.3,
+        unit: '小时'
     },
     {
-        name: "高中",
-        value: 42111,
-        unit: '元'
+        name: "css动画",
+        value: 2.3,
+        unit: '小时'
     },
     {
-        name: "初中及以下",
-        value: 81711,
-        unit: '元'
+        name: "TypeScript",
+        value: 0.5,
+        unit: '小时'
     },
     {
-        name: "其他",
-        value: 121711,
+        name: "第三方插件研究",
+        value: 0.9,
         unit: '元'
     }
 ];
@@ -152,7 +152,8 @@ chartData.forEach((v, i) => {
         axisLabel: {
             formatter: function(params) {
                 let item = chartData[params];
-                return '{line|}{circle|●}{name|'+ item.name +'}{bd||}{percent|'+item.percent+'}{value|'+ item.value+'}{unit|元}'
+                return '{line|}{circle|●}{name|'+ item.name +'}{bd||}{percent|'+item.percent+'}'
+                // {value|'+ item.value+'}{unit|元}'
             },
             interval: 0,
             inside: true,

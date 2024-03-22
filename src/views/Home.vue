@@ -2,7 +2,7 @@
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-11-27 09:02:31
  * @LastEditors: 李一
- * @LastEditTime: 2024-03-06 14:51:00
+ * @LastEditTime: 2024-03-11 16:19:11
  * @FilePath: \year-report-github\src\views\Home.vue
  * @Description: 首页
 -->
@@ -149,7 +149,7 @@ const list = [
   { id: 3, text: "好的，我研究一下" },
   { id: 4, text: "不用看了，m表多了个空格" },
   { id: 5, text: "问题已修复，请打版验证" },
-  { id: 6, text: "老师，帮忙看下啥问题啊" },
+  { id: 6, text: "老师，帮忙看下啥问题啊，页面没数据了。。。" },
   { id: 7, text: "咋样了 俊博 整一版啊 " },
 ];
 
@@ -166,7 +166,7 @@ const todoList1 = ref([
       "Web Components",
       "Web组件构件库 lit",
       "Promise原理",
-      "web3D可视化技术",
+      "Chrome浏览器插件开发",
     ],
     id: "1-1",
   },
@@ -209,7 +209,7 @@ const todoList2 = ref([
   {
     name: "诗词创作",
     subTitle: "读书已过五千卷，此墨足支三十年",
-    value: ["古诗3首", "古词5首", "现代诗3首"],
+    value: ["古诗2首", "古词3首", "现代诗2首"],
     id: "5-2",
   },
 ]);
@@ -307,6 +307,18 @@ onMounted(async () => {
     },
     {
       carouselUrl: new URL("@/assets/swiper3.png", import.meta.url),
+      redirectUrl: "",
+    },
+    {
+      carouselUrl: new URL("@/assets/swiper4.png", import.meta.url),
+      redirectUrl: "",
+    },
+    {
+      carouselUrl: new URL("@/assets/swiper5.png", import.meta.url),
+      redirectUrl: "",
+    },
+    {
+      carouselUrl: new URL("@/assets/个人档案.png", import.meta.url),
       redirectUrl: "",
     },
   ];

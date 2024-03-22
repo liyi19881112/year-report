@@ -1,9 +1,9 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-05 14:23:15
- * @LastEditors: 李一 yi_li_neu@neusoft.com
- * @LastEditTime: 2023-12-05 14:48:53
- * @FilePath: \newbee-mall-vue3-app\src\components\bar-chart.vue
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-03-11 13:53:09
+ * @FilePath: \year-report-github\src\components\bar-chart.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 
@@ -59,8 +59,11 @@ const initEchart = () => {
       confine: true,
       trigger: 'axis',
       backgroundColor: 'rgba(0, 0, 0,.8)',
+      axisPointer: {
+         type: 'shadow',
+      },
       textStyle: {
-        color: '#fff',
+        color: '#fff'
       },
     },
     legend: {
@@ -210,9 +213,13 @@ const setData = () => {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .chart {
   height: 100%;
   width: 100%;
+  padding: 0 20px;
+  & :deep(div > div) {
+    text-align: left;
+  }
 }
 </style>

@@ -1,9 +1,9 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-13 15:11:23
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-30 15:16:41
- * @FilePath: \year-report\src\components\Gallery.vue
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-03-11 15:17:57
+ * @FilePath: \year-report-github\src\components\Gallery.vue
  * @Description: 照片画廊悬停组件
 -->
 <template>
@@ -17,31 +17,31 @@
 </template>
 
 <script setup>
-import test1_1 from "./images/test.jpg";
-import test1_2 from "./images/云边有个小卖部.jpg";
-import test1_3 from "./images/云边有个小卖部.jpg";
-import test1_4 from "./images/云边有个小卖部.jpg";
-import test1_5 from "./images/云边有个小卖部.jpg";
-import test2_1 from "./images/content.jpg";
-import test2_2 from "./images/云边有个小卖部.jpg";
-import test2_3 from "./images/云边有个小卖部.jpg";
-import test2_4 from "./images/云边有个小卖部.jpg";
-import test2_5 from "./images/云边有个小卖部.jpg";
-import test3_1 from "./images/content.jpg";
-import test3_2 from "./images/云边有个小卖部.jpg";
-import test3_3 from "./images/云边有个小卖部.jpg";
-import test3_4 from "./images/云边有个小卖部.jpg";
-import test3_5 from "./images/云边有个小卖部.jpg";
-import test4_1 from "./images/content.jpg";
-import test4_2 from "./images/云边有个小卖部.jpg";
-import test4_3 from "./images/云边有个小卖部.jpg";
-import test4_4 from "./images/云边有个小卖部.jpg";
-import test4_5 from "./images/云边有个小卖部.jpg";
-import test5_1 from "./images/content.jpg";
-import test5_2 from "./images/云边有个小卖部.jpg";
-import test5_3 from "./images/云边有个小卖部.jpg";
-import test5_4 from "./images/云边有个小卖部.jpg";
-import test5_5 from "./images/云边有个小卖部.jpg";
+import test1_1 from "@/assets/swiper1.png";
+import test1_2 from "@/assets/swiper2.png";
+import test1_3 from "@/assets/swiper3.png";
+import test1_4 from "@/assets/swiper4.png";
+import test1_5 from "@/assets/swiper5.png";
+import test2_1 from "./images/jg2.png";
+import test2_2 from "./images/jg1.png";
+import test2_3 from "./images/jg3.png";
+import test2_4 from "./images/jg1.png";
+import test2_5 from "./images/jg3.png";
+import test3_1 from "./images/培训1.png";
+import test3_2 from "./images/培训2.png";
+import test3_3 from "./images/培训3.png";
+import test3_4 from "./images/培训4.png";
+import test3_5 from "./images/培训5.png";
+import test4_1 from "./images/诗词1.png";
+import test4_2 from "./images/诗词2.png";
+import test4_3 from "./images/诗词3.png";
+import test4_4 from "./images/诗词4.png";
+import test4_5 from "./images/诗词5.png";
+import test5_1 from "./images/鲜衣怒马.jpg";
+import test5_2 from "./images/成为雍正.jpg";
+import test5_3 from "./images/我与地坛.jpg";
+import test5_4 from "./images/城南旧事.jpg";
+import test5_5 from "./images/目送.jpg";
 
 const props = defineProps({
   itemId: String,

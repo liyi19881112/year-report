@@ -2,7 +2,7 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-21 15:47:44
  * @LastEditors: 李一
- * @LastEditTime: 2024-03-06 15:20:33
+ * @LastEditTime: 2024-03-08 10:23:45
  * @FilePath: \year-report-github\src\components\ThreeHoverCards.vue
  * @Description: 右上角多层hover卡片展示组件
 -->
@@ -23,31 +23,29 @@
     </div>
     <div class="title">个人成长</div>
     <div class="box box3">
-      <div class="box3-litter-title">box3小标题</div>
+      <div class="box3-litter-title"><img src="./images/补充.svg" >补充</div>
       <div class="content">
-        <span class="box-title">Title 1</span>
+        <span class="box-title">漏洞修复</span>
         <span class="box-text"
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          facere.
+          >sql防注入，数据库配置信息加密，Druid弱口令漏洞，SpringBoot Actuator配置不当，未授权访问接口，.htaccess配置文件泄露，数据请求加密，后端请求拦截增加token验证
         </span>
       </div>
     </div>
     <div class="box box2">
-      <div class="box2-litter-title">box2小标题</div>
+      <div class="box2-litter-title"><img src="./images/复盘.svg" >复盘</div>
       <div class="content">
-        <span class="box-title">Title 2</span>
+        <span class="box-title">不足之处</span>
         <span class="box-text"
-          >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et hic
-          praesentium nobis cumque, dolores adipisci?
+          >打包优化、js红宝书基础、vue源码学习、web性能优化、js设计模式
         </span>
       </div>
     </div>
     <div class="box box1">
-      <div class="box1-litter-title">box1小标题</div>
+      <div class="box1-litter-title"><img src="./images/展望.svg" >展望</div>
       <div class="content">
-        <span class="box-title">Title 3</span>
+        <span class="box-title">未来可期</span>
         <span class="box-text"
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, facilis!
+          >补充自己的技术短板，积极参与到架构升级与组件库平台开发中
         </span>
       </div>
     </div>
@@ -67,6 +65,10 @@
   border: 1px solid black;
   box-shadow: rgba(141, 177, 205, 0.618) 0px 40px 30px -25px;
   transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .card:hover {
@@ -207,22 +209,34 @@
 
 .box3-litter-title {
   position: absolute;
-  width: 30px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  width: 50px;
   height: 30px;
   left: 23%;
-  top: 85%;
+  top: 86%;
 }
 .box2-litter-title {
   position: absolute;
-  width: 30px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  width: 50px;
   height: 30px;
   left: 23%;
-  top: 85%;
+  top: 86%;
 }
 
 .box1-litter-title {
   position: absolute;
-  width: 30px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  width: 50px;
   height: 30px;
   left: 40%;
   top: 88%;

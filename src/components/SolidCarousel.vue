@@ -1,8 +1,8 @@
 <!--
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-26 14:10:09
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2023-12-28 09:41:03
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-03-07 11:36:33
  * @FilePath: \year-report-github\src\components\SolidCarousel.vue
  * @Description: 立体轮播卡片
 -->
@@ -44,7 +44,7 @@
 import img1 from "./images/云边有个小卖部.jpg";
 import img2 from "./images/山茶文具店.jpg";
 import img3 from "./images/鲜衣怒马.jpg";
-import img4 from "./images/成为雍正.jpg";
+import img4 from "./images/我与地坛.jpg";
 import img5 from "./images/我与地坛.jpg";
 import img6 from "./images/目送.jpg";
 import { ref, nextTick, onMounted, onBeforeUnmount } from "vue";
@@ -115,8 +115,8 @@ const leftBtnClick = () => {
 }
 
 .rotas {
-  width: 300px;
-  height: 140px;
+  width: 330px;
+  height: 170px;
   transition: all 0.6s linear;
   position: relative;
   transform-style: preserve-3d;

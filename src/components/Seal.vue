@@ -1,23 +1,23 @@
 <!--
  * @Author: 李一 yi_li_neu@neusoft.com
  * @Date: 2023-12-12 17:48:54
- * @LastEditors: 李一 375987927@qq.com
- * @LastEditTime: 2024-01-15 16:08:20
- * @FilePath: \year-report\src\components\seal.vue
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-03-07 10:48:49
+ * @FilePath: \year-report-github\src\components\Seal.vue
  * @Description: 生成签章组件
 -->
 <template>
   <div
     class="seal"
     :style="`position: absolute; right: 5px; top: 7px; border: 3px solid ${
-      currentItemDetail?.color || '#FFB6C1'
+      currentItemDetail?.color || '#ff0033'
     }`"
   >
     <div
       class="seal-son"
       :style="`border: 3px solid ${
-        currentItemDetail?.color || '#FFB6C1'
-      };color: ${currentItemDetail?.color || '#FFB6C1'}`"
+        currentItemDetail?.color || '#ff0033'
+      };color: ${currentItemDetail?.color || '#ff0033'}`"
     >
       <span
         style="
@@ -70,6 +70,11 @@ const sealItem = [
     id: "3",
     name: "培训类",
     color: "#FFC125",
+  },
+  {
+    id: "1",
+    name: "项目类",
+    color: "#46B03B",
   },
 ];
 

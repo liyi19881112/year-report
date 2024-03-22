@@ -1,9 +1,9 @@
 <!--
- * @Author: liyi19881112 71474753+liyi19881112@users.noreply.github.com
+ * @Author: 李一
  * @Date: 2023-12-25 14:57:12
- * @LastEditors: liyi19881112 71474753+liyi19881112@users.noreply.github.com
- * @LastEditTime: 2023-12-25 15:04:10
- * @FilePath: \year-report-github\src\components\sankey-chart.vue
+ * @LastEditors: 李一
+ * @LastEditTime: 2024-03-11 16:18:13
+ * @FilePath: \year-report-github\src\components\SankeyChart.vue
  * @Description: 桑基图
 -->
 
@@ -41,81 +41,81 @@ const initEchart = () => {
       layout: 'none',
       focusNodeAdjacency: 'allEdges',
       data: [{
-          name: '里旭',
+          name: 'vue3+ts',
           itemStyle: {
               color: '#95B334'
           },
       },{
-          name: '刘博文',
+          name: 'css动画进阶',
           itemStyle: {
               color: '#95B334'
           },
       },{
-          name: '赵俊博',
+          name: 'js红包书基础',
           itemStyle: {
               color: '#F1AF23'
           }, 
       },{
-          name: '曹翰',
+          name: 'Web Components',
           itemStyle: {
               color: '#F1AF23'
           }, 
       }, {
-          name: '王大军',
+          name: 'lit组件构件库',
           itemStyle: {
               color: '#C8493B'
           }, 
       },{
-          name: '吉明达',
+          name: 'Promise原理',
           itemStyle: {
               color: '#C8493B'
           },
       }, {
-          name: '李丽',
+          name: 'Web设计模式',
           itemStyle: {
               color: '#C8493B'
           },
       }, {
-          name: '王冰',
+          name: 'Chrome插件开发',
           itemStyle: {
               color: '#C8493B'
           },
       }, {
-          name: '达标，满足项目开发',
+          name: '已完成',
           itemStyle: {
               color: '#95B334'
           },
           
       }, {
-          name: '达标，缺乏开发经验',
+          name: '进行中',
           itemStyle: {
               color: '#F1AF23'
           },
       }, {
-          name: '不达标',
+          name: '未开始',
           itemStyle: {
               color: '#C8493B'
           },
       },],
       links: [{
-              source: '里旭',
-              target: '达标，满足项目开发',
+              source: 'vue3+ts',
+              target: '已完成',
               value: 1,
               lineStyle: {
                   color: 'source',
                   opacity: 0.6
               }
           },  {
-              source: '刘博文',
-              target: '达标，满足项目开发',
+              source: 'css动画进阶',
+              target: '已完成',
               value: 1,
               lineStyle: {
                   color: 'source',
                   opacity: 0.6
               }
           }, {
-              source: '赵俊博',
-              target: '达标，缺乏开发经验',
+              source: 'js红包书基础',
+              target: '进行中',
               value: 1,
               lineStyle: {
                   color: 'source',
@@ -123,8 +123,8 @@ const initEchart = () => {
               }
           }, 
           {
-              source: '曹翰',
-              target: '达标，缺乏开发经验',
+              source: 'Web Components',
+              target: '进行中',
               value: 1,
               lineStyle: {
                   color: 'source',
@@ -133,8 +133,8 @@ const initEchart = () => {
           }, 
             
               {
-                  source: '王大军',
-                  target: '不达标',
+                  source: 'lit组件构件库',
+                  target: '未开始',
                   value: 1,
                   lineStyle: {
                       color: 'source',
@@ -144,8 +144,8 @@ const initEchart = () => {
               
               
               {
-                  source: '吉明达',
-                  target: '不达标',
+                  source: 'Promise原理',
+                  target: '未开始',
                   value: 1,
                   lineStyle: {
                       color: 'source',
@@ -153,16 +153,16 @@ const initEchart = () => {
                   }
               },
           {
-              source: '李丽',
-              target: '不达标',
+              source: 'Web设计模式',
+              target: '未开始',
               value: 1,
               lineStyle: {
                   color: 'source',
                   opacity: 0.5
               }
           }, {
-              source: '王冰',
-              target: '不达标',
+              source: 'Chrome插件开发',
+              target: '未开始',
               value: 1,
               lineStyle: {
                   color: 'source',

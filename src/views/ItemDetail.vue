@@ -2,7 +2,7 @@
  * @Author: 李一 375987927@qq.com
  * @Date: 2023-12-20 14:19:05
  * @LastEditors: 李一
- * @LastEditTime: 2024-03-07 09:31:49
+ * @LastEditTime: 2024-03-13 10:13:26
  * @FilePath: \year-report-github\src\views\ItemDetail.vue
  * @Description: 详细内容展示
 -->
@@ -10,7 +10,8 @@
 <template>
   <div class="fixed-box" :style="fixedBoxStyleObject" v-show="isShowMenu" ref="fixedBoxRef">
     <span v-show="rightButton" @click="removeFixed">全屏显示</span>
-    <span v-show="!rightButton" @click="goToDetail">查看详情</span>
+    <div v-show="!rightButton" @click="goToDetail(1)">查看详情</div>
+    <div v-show="!rightButton" @click="goToDetail(2)">组件平台</div>
   </div>
   <div class="product-detail">
     <s-header
@@ -175,24 +176,29 @@ const getWeatherInfo = async () => {
 }
 // 获取微博热搜榜
 const getWeiboHot = async () => {
-  // const { data: hotInfo } = await getHot() 热搜接口已失效
-  const hotInfo = [
-    { name: "习近平看望政协委员" },
-    { name: "建议国家全面禁止未成年人网游" },
-    { name: "回南天取快递 像到了天庭" },
-    { name: "杨幂考北电是孤注一掷" },
-    { name: "女子被鸡啄伤送进ICU抢救2个月" },
-    { name: "欧冠八强确定四席" },
-    { name: "欧冠八强确定四席" },
-    { name: "欧冠八强确定四席" },
-    { name: "欧冠八强确定四席" },
-    { name: "欧冠八强确定四席" }
-  ]
+  const { data: hotInfo } = await getHot()
+  // const hotInfo = [
+  //   { name: "理想MEGA发布多日未公布订单数" },
+  //   { name: "一对夫妇做短剧每月进账4亿多" },
+  //   { name: "Doinb老婆疑似被带走" },
+  //   { name: "十四届全国人大二次会议今天闭幕" },
+  //   { name: "张艺兴起诉芒果扒皮酱" },
+  //   { name: "找到了亲妈却删了她的联系方式" },
+  //   { name: "董明珠称一年拿几百万愿意多承担一点税" },
+  //   { name: "奥斯卡" },
+  //   { name: "新闻女王2官宣原班人马" },
+  //   { name: "宁德时代暴涨超13%" },
+  //   { name: "长安的荔枝今日官宣" },
+  //   { name: "周处除三害 贪嗔痴" },
+  //   { name: "余承东何小鹏留言支持李想" },
+  //   { name: "轰20快将公布" },
+  //   { name: "男子因社恐40岁才找到合适的工作" }
+  // ]
   let locHot = ''
   console.log('微博热搜接口信息', hotInfo)
   // 对微博热搜数据进行处理
   if ( hotInfo ) {
-    locHot = '当日微博热搜内容：' + hotInfo.map((item, index) => `${index + 1}、${item.name}`).join(' ');
+    locHot = '当日微博热搜内容：' + hotInfo.result.list.map((item, index) => `${index + 1}、${item.hotword}`).join(' ');
   }
   setLocal('hot', locHot)
 }
@@ -248,13 +254,11 @@ nextTick(() => {
   // 先根据缓存判断是否已经请求天气预报信息，防止重复请求
   if (!getLocal("weather")) {
     // 没有缓存，请求数据
-    console.log("请求天气信息");
     getWeatherInfo();
   }
   // 先根据缓存判断是否已经请求微博热搜信息，防止重复请求
   if (!getLocal("hot")) {
     // 没有缓存，请求数据
-    console.log("请求微博热搜信息");
     getWeiboHot();
   }
 });
@@ -263,24 +267,55 @@ const goTo = () => {
   router.push({ path: "/cart" });
 };
 
-// 养老待遇享受情况数据
+// 柱形图数据
 const barData = ref({
-  AxisData: ["202301", "202302", "202303"],
-  SeriesData: [[33, 44, 555]],
+  AxisData: ["2021年", "2022年", "2023年"],
+  SeriesData: [[5.8, 5.3, 7.5],[5, 4, 7]],
 });
 
-// 养老待遇享受情况echart配置
+// 柱形图echart配置
 const barOptions = {
   grid: {
-    top: "5%",
+    top: "20%",
     left: "0%",
   },
   legend: {
-    show: false,
+    show: true,
   },
   yAxis: [
     {
-      name: "",
+      name: "万行",
+      nameTextStyle: {
+        color: "rgba(0, 0, 0, 0.64)",
+        fontFamily: "PingFang SC",
+        fontSize: 12,
+      },
+      splitLine: {
+        show: true,
+        lineStyle: {
+          color: "rgba(231, 231, 231, 0.4)",
+          type: "dashed",
+          width: 1,
+        },
+      },
+      axisLine: {
+        show: false,
+        lineStyle: {
+          color: "rgba(255, 255, 255, 0.16)",
+        },
+      },
+      axisLabel: {
+        show: true,
+        color: "rgba(0, 0, 0, 0.64)",
+        fontFamily: "PingFang SC",
+        fontSize: 12,
+      },
+      axisTick: {
+        show: false,
+      },
+    },
+    {
+      name: "个",
       nameTextStyle: {
         color: "rgba(0, 0, 0, 0.64)",
         fontFamily: "PingFang SC",
@@ -313,8 +348,21 @@ const barOptions = {
   ],
   series: [
     {
-      name: "数量",
+      name: "代码量",
       yAxisIndex: 0,
+      barGap: 2,
+      label: {
+        normal: {
+            show: true,
+            position: 'top',
+            // formatter: (e) => {
+            //    return e.value + '次';
+            // },
+            fontSize: 14,
+            color: '#000',
+            // offset: [0, -5],
+         },
+      },
       itemStyle: {
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
           {
@@ -328,8 +376,38 @@ const barOptions = {
         ]),
       },
     },
+    {
+      name: "主要参与项目数",
+      yAxisIndex: 1,
+      barGap: 2,
+      label: {
+         normal: {
+            show: true,
+            position: 'top',
+            // formatter: (e) => {
+            //    return e.value + '次';
+            // },
+            fontSize: 14,
+            color: '#000',
+            // offset: [0, -5],
+         },
+      },
+      itemStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: "rgba(102, 255, 51, 1)",
+          }, // 柱图渐变色
+          {
+            offset: 1,
+            color: "rgba(102, 255, 51, 0.08)",
+          }, // 柱图渐变色
+        ]),
+      },
+    },
   ],
 };
+
 
 let timeout = ref(null);
 // 加入防抖机制，立即执行版本
@@ -407,10 +485,11 @@ const removeFixed = () => {
   rightButton.value = false
 }
 
-const goToDetail = () => {
+const goToDetail = (id) => {
   isShowMenu.value = false
   // 跳转新窗口
-  window.open('https://naotu.baidu.com/file/788fc8af452a73b1465b33464ba274bf?token=db598ebde126d2c3')
+  if (id === 1) window.open('https://naotu.baidu.com/file/788fc8af452a73b1465b33464ba274bf?token=db598ebde126d2c3')
+  window.open('https://180.76.167.167:18091/example/#/examples')
 }
 </script>
 
@@ -518,7 +597,10 @@ const goToDetail = () => {
   color: black;
   padding: 8px;
   width: 100px;
-  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60px;
   text-align: center;
   padding: 12px 4px;
   border-radius: 6px;
